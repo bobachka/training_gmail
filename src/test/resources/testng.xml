@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Gmail suite" parallel="classes" thread-count="3">
+    <!--    <listeners>-->
+    <!--        <listener class-name="by.helmes.gmail.core.common.AnnotationTransformer"/>-->
+    <!--    </listeners>-->
+    <test name="Email tests">
+        <classes>
+            <class name="by.helmes.gmail.tests.SendEmailTests"/>
+            <class name="by.helmes.gmail.tests.EditEmailTests"/>
+            <class name="by.helmes.gmail.tests.DeleteEmailTests"/>
+        </classes>
+    </test>
+    <!--    <test name="Edit Email tests">-->
+    <!--        <classes>-->
+
+    <!--        </classes>-->
+    <!--    </test>-->
+    <!--    <test name="Delete Email tests">-->
+    <!--        <classes>-->
+
+    <!--        </classes>-->
+    <!--</test>-->
+</suite>
