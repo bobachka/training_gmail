@@ -18,6 +18,9 @@ public class DeleteEmailTests {
     @Test
     @Description(value = "Тест проверяет ввод валидных значений в поле 'Контактный телефон'")
     public void sendEmail() {
+        long id = Thread.currentThread().getId();
+        System.out.println("Delete Email tests: Thread id is " + id);
+
         String login = "svieta.auto@gmail.com";
         String password = "Solera2020";
         loginHelper.navigateToHomePage();

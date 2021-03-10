@@ -10,13 +10,9 @@ public class HomePage extends AbstractPage {
     //    private static String composeEmailBtn = "//div[contains(text(),'Написать']";
     private static String composeEmailBtn = "//*[@class=\"T-I T-I-KE L3\"]";
     private static String InboxCounter = "//*[@class=\"bsU\"]";
-    private NewEmailPage newEmailPage = new NewEmailPage();
-    private HomePage homePage = null;
 
-    public HomePage getHomePage() {
-        if (homePage == null) {
-            homePage = new HomePage();
-        }
+    public static HomePage getHomePage() {
+        HomePage homePage = new HomePage();
         waitForElementPresence(getElementBy(logo));
         return homePage;
     }
@@ -32,7 +28,7 @@ public class HomePage extends AbstractPage {
     public NewEmailPage composeEmail() {
         waitForElementPresence(getElementBy(composeEmailBtn));
         getElement(composeEmailBtn).click();
-        return newEmailPage.getNewEmailPage();
+        return NewEmailPage.getNewEmailPage();
     }
 
     public String getInboxTotal() {

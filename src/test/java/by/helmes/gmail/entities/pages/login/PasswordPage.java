@@ -6,12 +6,9 @@ public class PasswordPage extends AbstractPage {
     //private static String passwordField = "//input[@type=\"password\"]";
     private static String passwordField = "//*[@name=\"password\"]";
     private static String nextBtn = "//*[@id=\"passwordNext\"]";
-    private PasswordPage passwordPage = null;
 
-    public PasswordPage getPasswordPage() {
-        if (passwordPage == null) {
-            passwordPage = new PasswordPage();
-        }
+    public static PasswordPage getPasswordPage() {
+        PasswordPage passwordPage = new PasswordPage();
         waitForElementPresence(getElementBy(passwordField));
         return passwordPage;
     }

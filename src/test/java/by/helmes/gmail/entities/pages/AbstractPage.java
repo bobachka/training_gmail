@@ -12,9 +12,9 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class AbstractPage extends FrameworkCore {
-    private WebDriver driver = getInstance();
+    private static WebDriver driver = getInstance();
 
-    public WebDriver getDriver() {
+    public static WebDriver getDriver() {
         return driver;
     }
 
@@ -23,7 +23,7 @@ public class AbstractPage extends FrameworkCore {
         driver.get(url);
     }
 
-    public void waitForElementInvisible(final By by) {
+    public static void waitForElementInvisible(final By by) {
         try {
             WebDriverWait waiter = new WebDriverWait(driver, PauseLength.AVG.value());
             waiter.until(ExpectedConditions.invisibilityOfElementLocated(by));
@@ -32,7 +32,7 @@ public class AbstractPage extends FrameworkCore {
         }
     }
 
-    public void waitForElementVisible(final By by) {
+    public static void waitForElementVisible(final By by) {
         try {
             WebDriverWait waiter = new WebDriverWait(driver, PauseLength.AVG.value());
             waiter.until(ExpectedConditions.visibilityOfElementLocated(by));
@@ -41,7 +41,7 @@ public class AbstractPage extends FrameworkCore {
         }
     }
 
-    public void waitForElementPresence(final By by) {
+    public static void waitForElementPresence(final By by) {
         try {
             WebDriverWait waiter = new WebDriverWait(driver, PauseLength.AVG.value());
             waiter.until(ExpectedConditions.presenceOfElementLocated(by));
@@ -50,7 +50,7 @@ public class AbstractPage extends FrameworkCore {
         }
     }
 
-    public void waitForElementClickable(final By by) {
+    public static void waitForElementClickable(final By by) {
         try {
             WebDriverWait waiter = new WebDriverWait(driver, PauseLength.MAX.value());
             waiter.until(ExpectedConditions.elementToBeClickable(by));

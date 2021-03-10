@@ -12,10 +12,8 @@ public class NewEmailPage extends AbstractPage {
     private static String subjectField = "//*[@name=\"subjectbox\"]";
     private static String bodyField = "//*[@class=\"Am Al editable LW-avf tS-tW\"]";
     private static String sendBtn = "//*[@class=\"T-I J-J5-Ji aoO v7 T-I-atl L3\"]";
-    private HomePage homePage = new HomePage();
-    private NewEmailPage newEmailPage = new NewEmailPage();
 
-    public NewEmailPage getNewEmailPage() {
+    public static NewEmailPage getNewEmailPage() {
         NewEmailPage newEmailPage = new NewEmailPage();
         waitForElementPresence(getElementBy(receiverField));
         return newEmailPage;
@@ -37,21 +35,21 @@ public class NewEmailPage extends AbstractPage {
         getElement(receiverField).click();
         getElement(receiverField).sendKeys(receiver);
         getElement(receiverField).sendKeys(Keys.ENTER);
-        return newEmailPage.getNewEmailPage();
+        return NewEmailPage.getNewEmailPage();
     }
 
     public NewEmailPage fillSubject() {
         waitForElementClickable(getElementBy(subjectField));
         getElement(subjectField).click();
         getElement(subjectField).sendKeys(randomiseSampleText(sampleText));
-        return newEmailPage.getNewEmailPage();
+        return NewEmailPage.getNewEmailPage();
     }
 
     public NewEmailPage fillBody() {
         waitForElementClickable(getElementBy(bodyField));
         getElement(bodyField).click();
         getElement(bodyField).sendKeys(randomiseSampleText(sampleText));
-        return newEmailPage.getNewEmailPage();
+        return NewEmailPage.getNewEmailPage();
     }
 
     public HomePage sendEmail() {
@@ -59,7 +57,7 @@ public class NewEmailPage extends AbstractPage {
         getElement(sendBtn).click();
 //        waitForElementInvisible(getElementBy(sendBtn));
         wait(5000);
-        return homePage.getHomePage();
+        return HomePage.getHomePage();
     }
 
 }
