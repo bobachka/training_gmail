@@ -48,9 +48,9 @@
                                 <name>allure.results.directory</name>
                                 <value>allure-results</value>
                             </property>
-                            <property>
-                                <name>fileName</name>
-                            </property>
+<!--                            <property>-->
+<!--                                <name>fileName</name>-->
+<!--                            </property>-->
                         </systemProperties>
 
                         <!-- Suite testng xml file to consider for test execution -->
@@ -74,6 +74,13 @@
     </build>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>4.3.1</version>
+            <scope>test</scope>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>

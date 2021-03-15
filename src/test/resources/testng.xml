@@ -4,6 +4,7 @@
     <!--        <listener class-name="by.helmes.gmail.core.common.AnnotationTransformer"/>-->
     <!--    </listeners>-->
     <test name="Email tests">
+        <parameter name="fileName" value = "configuration"/>
         <classes>
             <class name="by.helmes.gmail.tests.SendEmailTests"/>
             <class name="by.helmes.gmail.tests.EditEmailTests"/>

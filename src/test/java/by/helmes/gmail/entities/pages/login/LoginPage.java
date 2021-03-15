@@ -1,20 +1,25 @@
 package by.helmes.gmail.entities.pages.login;
 
+import by.helmes.gmail.core.FrameworkCore;
 import by.helmes.gmail.entities.pages.AbstractPage;
+import org.openqa.selenium.WebDriver;
 
 public class LoginPage extends AbstractPage {
     private static String loginField = "//*[@id=\"identifierId\"]";
     private static String nextBtn = "//*[@id=\"identifierNext\"]";
 
+    public LoginPage(WebDriver driver) {
+        super(driver);
+    }
+
     public LoginPage navigateToLoginPage() {
-        openUrl(baseUrl);
+        openUrl(FrameworkCore.baseUrl);
         return getLoginPage();
     }
 
-    public static LoginPage getLoginPage() {
-        LoginPage loginPage = new LoginPage();
+    public LoginPage getLoginPage() {
         waitForElementPresence(getElementBy(loginField));
-        return loginPage;
+        return this;
     }
 
     public LoginPage fillLoginField(String login) {

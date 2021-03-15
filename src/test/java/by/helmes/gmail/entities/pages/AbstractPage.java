@@ -1,6 +1,5 @@
 package by.helmes.gmail.entities.pages;
 
-import by.helmes.gmail.core.FrameworkCore;
 import by.helmes.gmail.core.utils.PauseLength;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -11,11 +10,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-public class AbstractPage extends FrameworkCore {
-    private static WebDriver driver = getInstance();
+public class AbstractPage {
+    protected WebDriver driver;
 
-    public static WebDriver getDriver() {
-        return driver;
+    public AbstractPage (WebDriver driver){
+        this.driver = driver;
     }
 
     public void openUrl(String url) {
@@ -23,7 +22,7 @@ public class AbstractPage extends FrameworkCore {
         driver.get(url);
     }
 
-    public static void waitForElementInvisible(final By by) {
+    public void waitForElementInvisible(final By by) {
         try {
             WebDriverWait waiter = new WebDriverWait(driver, PauseLength.AVG.value());
             waiter.until(ExpectedConditions.invisibilityOfElementLocated(by));
@@ -32,7 +31,7 @@ public class AbstractPage extends FrameworkCore {
         }
     }
 
-    public static void waitForElementVisible(final By by) {
+    public void waitForElementVisible(final By by) {
         try {
             WebDriverWait waiter = new WebDriverWait(driver, PauseLength.AVG.value());
             waiter.until(ExpectedConditions.visibilityOfElementLocated(by));
@@ -41,7 +40,7 @@ public class AbstractPage extends FrameworkCore {
         }
     }
 
-    public static void waitForElementPresence(final By by) {
+    public void waitForElementPresence(final By by) {
         try {
             WebDriverWait waiter = new WebDriverWait(driver, PauseLength.AVG.value());
             waiter.until(ExpectedConditions.presenceOfElementLocated(by));
@@ -50,7 +49,7 @@ public class AbstractPage extends FrameworkCore {
         }
     }
 
-    public static void waitForElementClickable(final By by) {
+    public void waitForElementClickable(final By by) {
         try {
             WebDriverWait waiter = new WebDriverWait(driver, PauseLength.MAX.value());
             waiter.until(ExpectedConditions.elementToBeClickable(by));
@@ -119,7 +118,7 @@ public class AbstractPage extends FrameworkCore {
     }
 
     public void scrollPage() {
-        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,300)");
     }
 
@@ -132,7 +131,7 @@ public class AbstractPage extends FrameworkCore {
     }
 
     public void hoverOnItem(String item) {
-        Actions action = new Actions(getDriver());
+        Actions action = new Actions(driver);
         WebElement element = getElement(item);
         action.moveToElement(element).perform();
     }

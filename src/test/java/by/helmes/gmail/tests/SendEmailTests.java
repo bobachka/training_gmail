@@ -1,29 +1,49 @@
 package by.helmes.gmail.tests;
 
 
-import by.helmes.gmail.entities.helpers.NewEmailHelper;
+import by.helmes.gmail.core.FrameworkCore;
 import by.helmes.gmail.entities.helpers.login.HomeHelper;
 import by.helmes.gmail.entities.helpers.login.LoginHelper;
 import by.helmes.gmail.entities.helpers.login.PasswordHelper;
+import by.helmes.gmail.entities.helpers.navigation.NewEmailHelper;
 import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class SendEmailTests {
-    private LoginHelper loginHelper = new LoginHelper();
-    private PasswordHelper passwordHelper = new PasswordHelper();
-    private HomeHelper homeHelper = new HomeHelper();
-    private NewEmailHelper newEmailHelper = new NewEmailHelper();
+public class SendEmailTests extends BaseTest {
+    private LoginHelper loginHelper;
+    private PasswordHelper passwordHelper;
+    private HomeHelper homeHelper;
+    private NewEmailHelper newEmailHelper;
+
+    private String login;
+    private String password;
+
+
+    @Parameters({"fileName"})
+    @BeforeTest
+    public void setupClass(String fileName) {
+        setup(fileName);
+
+        loginHelper = new LoginHelper(driver);
+        passwordHelper = new PasswordHelper(driver);
+        homeHelper = new HomeHelper(driver);
+        newEmailHelper = new NewEmailHelper(driver);
+
+        login = FrameworkCore.login;
+        password = FrameworkCore.password;
+    }
+
 
     @Test
-    @Description(value = "Тест проверяет ввод валидных значений в поле 'Контактный телефон'")
+    @Description(value = "Sending email'")
     public void sendEmail() {
         long id = Thread.currentThread().getId();
         System.out.println("Send Email tests: Thread id is " + id);
 
-        String login = "svieta.auto@gmail.com";
-        String password = "Solera2020";
         loginHelper.navigateToHomePage();
         loginHelper.fillInLogin(login);
         passwordHelper.fillInPassword(password);
@@ -31,7 +51,7 @@ public class SendEmailTests {
         int inboxResultsBefore = homeHelper.getInboxResultsTotal();
 
         homeHelper.composeEmail();
-        newEmailHelper.sendNewLetter("svieta.auto@gmail.com");
+        newEmailHelper.sendNewLetter(login);
 
         int inboxResultsAfter = homeHelper.getInboxResultsTotal();
 
@@ -40,7 +60,6 @@ public class SendEmailTests {
 
     @AfterSuite
     public void tearDown() {
-
         homeHelper.quit();
     }
 }

@@ -1,14 +1,19 @@
 package by.helmes.gmail.entities.pages.login;
 
 import by.helmes.gmail.entities.pages.AbstractPage;
+import org.openqa.selenium.WebDriver;
 
 public class PasswordPage extends AbstractPage {
     //private static String passwordField = "//input[@type=\"password\"]";
     private static String passwordField = "//*[@name=\"password\"]";
     private static String nextBtn = "//*[@id=\"passwordNext\"]";
 
-    public static PasswordPage getPasswordPage() {
-        PasswordPage passwordPage = new PasswordPage();
+    public PasswordPage (WebDriver driver){
+        super(driver);
+    }
+
+    public PasswordPage getPasswordPage() {
+        PasswordPage passwordPage = new PasswordPage(driver);
         waitForElementPresence(getElementBy(passwordField));
         return passwordPage;
     }

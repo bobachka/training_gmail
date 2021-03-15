@@ -1,20 +1,25 @@
 package by.helmes.gmail.entities.pages.navigation;
 
+import by.helmes.gmail.core.FrameworkCore;
 import by.helmes.gmail.entities.pages.AbstractPage;
 import by.helmes.gmail.entities.pages.login.HomePage;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 
 import java.util.Random;
 
 public class NewEmailPage extends AbstractPage {
     private static String receiverField = "//*[@name=\"to\"]";
-    //    private static String subjectField = "//*[@name=\"aoT\"]";
     private static String subjectField = "//*[@name=\"subjectbox\"]";
     private static String bodyField = "//*[@class=\"Am Al editable LW-avf tS-tW\"]";
     private static String sendBtn = "//*[@class=\"T-I J-J5-Ji aoO v7 T-I-atl L3\"]";
 
-    public static NewEmailPage getNewEmailPage() {
-        NewEmailPage newEmailPage = new NewEmailPage();
+    public NewEmailPage(WebDriver driver) {
+        super(driver);
+    }
+
+    public NewEmailPage getNewEmailPage() {
+        NewEmailPage newEmailPage = new NewEmailPage(driver);
         waitForElementPresence(getElementBy(receiverField));
         return newEmailPage;
     }
@@ -35,21 +40,21 @@ public class NewEmailPage extends AbstractPage {
         getElement(receiverField).click();
         getElement(receiverField).sendKeys(receiver);
         getElement(receiverField).sendKeys(Keys.ENTER);
-        return NewEmailPage.getNewEmailPage();
+        return getNewEmailPage();
     }
 
     public NewEmailPage fillSubject() {
         waitForElementClickable(getElementBy(subjectField));
         getElement(subjectField).click();
-        getElement(subjectField).sendKeys(randomiseSampleText(sampleText));
-        return NewEmailPage.getNewEmailPage();
+        getElement(subjectField).sendKeys(randomiseSampleText(FrameworkCore.sampleText));
+        return getNewEmailPage();
     }
 
     public NewEmailPage fillBody() {
         waitForElementClickable(getElementBy(bodyField));
         getElement(bodyField).click();
-        getElement(bodyField).sendKeys(randomiseSampleText(sampleText));
-        return NewEmailPage.getNewEmailPage();
+        getElement(bodyField).sendKeys(randomiseSampleText(FrameworkCore.sampleText));
+        return getNewEmailPage();
     }
 
     public HomePage sendEmail() {
@@ -57,7 +62,7 @@ public class NewEmailPage extends AbstractPage {
         getElement(sendBtn).click();
 //        waitForElementInvisible(getElementBy(sendBtn));
         wait(5000);
-        return HomePage.getHomePage();
+        return new HomePage(driver);
     }
 
 }
