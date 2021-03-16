@@ -8,10 +8,7 @@ import by.helmes.gmail.entities.helpers.login.PasswordHelper;
 import by.helmes.gmail.entities.helpers.navigation.NewEmailHelper;
 import io.qameta.allure.Description;
 import org.testng.Assert;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class SendEmailTests extends BaseTest {
     private LoginHelper loginHelper;
@@ -58,7 +55,7 @@ public class SendEmailTests extends BaseTest {
         Assert.assertNotEquals(inboxResultsBefore, inboxResultsAfter);
     }
 
-    @AfterSuite
+    @AfterTest
     public void tearDown() {
         homeHelper.quit();
     }

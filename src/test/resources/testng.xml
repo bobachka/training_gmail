@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Gmail suite" parallel="classes" thread-count="3">
+<suite name="Gmail suite" parallel="tests" thread-count="3">
     <!--    <listeners>-->
     <!--        <listener class-name="by.helmes.gmail.core.common.AnnotationTransformer"/>-->
     <!--    </listeners>-->
     <test name="Email tests">
-        <parameter name="fileName" value = "configuration"/>
+        <parameter name="fileName" value="configuration"/>
         <classes>
             <class name="by.helmes.gmail.tests.SendEmailTests"/>
-            <class name="by.helmes.gmail.tests.EditEmailTests"/>
+        </classes>
+    </test>
+    <test name="Email testsasd">
+        <parameter name="fileName" value="configuration"/>
+        <classes>
             <class name="by.helmes.gmail.tests.DeleteEmailTests"/>
         </classes>
     </test>

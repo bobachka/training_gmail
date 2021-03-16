@@ -25,4 +25,12 @@ public class HomeHelper extends AbstractHelper {
         return homePage.composeEmail();
     }
 
+    public HomePage deleteLastUnreadEmail() {
+        return homePage.deleteLastUnreadEmail();
+    }
+
+    public int countUnreadEmails(){
+        return homePage.countUnreadEmails();
+    }
+
 }
