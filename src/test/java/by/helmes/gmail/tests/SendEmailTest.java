@@ -10,7 +10,7 @@ import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-public class SendEmailTests extends BaseTest {
+public class SendEmailTest extends BaseTest {
     private LoginHelper loginHelper;
     private PasswordHelper passwordHelper;
     private HomeHelper homeHelper;
@@ -21,19 +21,21 @@ public class SendEmailTests extends BaseTest {
 
 
     @Parameters({"fileName"})
-    @BeforeTest
+    @BeforeClass
     public void setupClass(String fileName) {
-        setup(fileName);
-
-        loginHelper = new LoginHelper(driver);
-        passwordHelper = new PasswordHelper(driver);
-        homeHelper = new HomeHelper(driver);
-        newEmailHelper = new NewEmailHelper(driver);
-
+        readConfigFile(fileName);
         login = FrameworkCore.login;
         password = FrameworkCore.password;
     }
 
+    @BeforeMethod
+    public void setupMethod() {
+        setupTest();
+        loginHelper = new LoginHelper(driver);
+        passwordHelper = new PasswordHelper(driver);
+        homeHelper = new HomeHelper(driver);
+        newEmailHelper = new NewEmailHelper(driver);
+    }
 
     @Test
     @Description(value = "Sending email'")
@@ -55,8 +57,8 @@ public class SendEmailTests extends BaseTest {
         Assert.assertNotEquals(inboxResultsBefore, inboxResultsAfter);
     }
 
-    @AfterTest
+    @AfterMethod
     public void tearDown() {
-        homeHelper.quit();
+        cleanupTest();
     }
 }

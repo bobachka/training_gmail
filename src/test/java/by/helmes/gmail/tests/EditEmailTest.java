@@ -1,4 +1,4 @@
 package by.helmes.gmail.tests;
 
-public class EditEmailTests {
+public class EditEmailTest {
 }

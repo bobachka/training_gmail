@@ -7,12 +7,9 @@ import by.helmes.gmail.entities.helpers.login.PasswordHelper;
 import by.helmes.gmail.entities.helpers.navigation.NewEmailHelper;
 import io.qameta.allure.Description;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
-public class DeleteEmailTests extends BaseTest {
+public class DeleteEmailTest extends BaseTest {
     private LoginHelper loginHelper;
     private PasswordHelper passwordHelper;
     private HomeHelper homeHelper;
@@ -23,17 +20,22 @@ public class DeleteEmailTests extends BaseTest {
 
 
     @Parameters({"fileName"})
-    @BeforeTest
+    @BeforeClass
     public void setupClass(String fileName) {
-        setup(fileName);
+        readConfigFile(fileName);
+
+        login = FrameworkCore.login;
+        password = FrameworkCore.password;
+    }
+
+    @BeforeMethod
+    public void setupMethod() {
+        setupTest();
 
         loginHelper = new LoginHelper(driver);
         passwordHelper = new PasswordHelper(driver);
         homeHelper = new HomeHelper(driver);
         newEmailHelper = new NewEmailHelper(driver);
-
-        login = FrameworkCore.login;
-        password = FrameworkCore.password;
 
         loginHelper.navigateToHomePage();
         loginHelper.fillInLogin(login);
@@ -59,8 +61,8 @@ public class DeleteEmailTests extends BaseTest {
         Assert.assertEquals(unreadEmailsListBefore, unreadEmailsListAfter);
     }
 
-    @AfterTest
+    @AfterMethod
     public void tearDown() {
-        homeHelper.quit();
+        cleanupTest();
     }
 }
