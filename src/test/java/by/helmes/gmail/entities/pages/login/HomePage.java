@@ -9,16 +9,13 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class HomePage extends AbstractPage {
-    //private static String logo = "//*[@href=\"#inbox\"]";
-    private static String logo = "//*[@class=\"gb_le gb_qc gb_je\"]";
-    //private static String composeEmailBtn = "//div[contains(text(),'Написать']";
-    private static String composeEmailBtn = "//*[@class=\"T-I T-I-KE L3\"]";
-    private static String InboxCounter = "//*[@class=\"bsU\"]";
-    private static String lastUnreadEmail = "//tr[@class=\"zA zE\"][1]";
-    private static String unreadEmails = "//tr[@class=\"zA zE\"]";
-    //private static String lastUnreadCheckbox = "//*[@role=\"checkbox\"]";
-    private static String lastUnreadCheckbox = "//*[@class=\"oZ-jc T-Jo J-J5-Ji \"][1]";
-    private static String trashBin = "//*[@class=\"T-I J-J5-Ji nX T-I-ax7 T-I-Js-Gs mA\"]";
+    private final String logo = "//*[@class=\"gb_le gb_qc gb_je\"]";
+    private final String composeEmailBtn = "//*[@class=\"T-I T-I-KE L3\"]";
+    private final String inboxCounter = "//*[@class=\"bsU\"]";
+    private final String lastUnreadEmail = "//tr[@class=\"zA zE\"][1]";
+    private final String unreadEmails = "//tr[@class=\"zA zE\"]";
+    private final String lastUnreadCheckbox = "//*[@class=\"oZ-jc T-Jo J-J5-Ji \"][1]";
+    private final String trashBin = "//*[@class=\"T-I J-J5-Ji nX T-I-ax7 T-I-Js-Gs mA\"]";
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -41,8 +38,8 @@ public class HomePage extends AbstractPage {
     }
 
     public String getInboxTotal() {
-        waitForElementVisible(getElementBy(InboxCounter));
-        return getElement(InboxCounter).getText();
+        waitForElementVisible(getElementBy(inboxCounter));
+        return getElement(inboxCounter).getText();
     }
 
     public HomePage deleteLastUnreadEmail() {
@@ -51,7 +48,12 @@ public class HomePage extends AbstractPage {
         getElement(lastUnreadCheckbox).click();
         waitForElementPresence(getElementBy(trashBin));
         getElement(trashBin).click();
+
+//TODO  replace with implicit waiter
         wait(5000);
+        //driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+        //waitForTextChange(getElementBy(inboxCounter),getInboxTotal());
         return this;
     }
 

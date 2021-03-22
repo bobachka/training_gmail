@@ -14,7 +14,7 @@
         <maven.compiler.target>14</maven.compiler.target>
 
         <maven-surefire-plugin.version>2.20.1</maven-surefire-plugin.version>
-        <aspectj.version>1.8.10</aspectj.version>
+        <aspectj.version>1.9.5</aspectj.version>
         <allure-testng.version>2.13.3</allure-testng.version>
 
     </properties>
@@ -43,10 +43,13 @@
                             -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/1.9.5/aspectjweaver-1.9.5.jar
                         </argLine>
 
+                            <reportsDirectory>test-output</reportsDirectory>
+                            <testFailureIgnore>true</testFailureIgnore>
+
                         <systemProperties>
                             <property>
                                 <name>allure.results.directory</name>
-                                <value>target/allure-results</value>
+                                <value>allure-results</value>
                             </property>
                         </systemProperties>
                         <!-- Suite testng xml file to consider for test execution -->
@@ -62,8 +65,6 @@
                             <version>1.9.5</version>
                         </dependency>
                     </dependencies>
-
-
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -103,13 +104,28 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
-            <version>2.13.3</version>
+            <version>2.13.8</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>1.9.5</version>
         </dependency>
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/io.qameta.allure/allure-maven &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>io.qameta.allure</groupId>-->
+<!--            <artifactId>allure-maven</artifactId>-->
+<!--            <version>2.10.0</version>-->
+<!--        </dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
     </dependencies>
 
 

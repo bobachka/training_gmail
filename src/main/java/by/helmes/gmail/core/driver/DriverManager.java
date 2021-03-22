@@ -1,5 +1,6 @@
 package by.helmes.gmail.core.driver;
 
+import by.helmes.gmail.core.utils.LoggingUtils;
 import org.openqa.selenium.WebDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -15,7 +16,7 @@ public abstract class DriverManager {
                 drivers.get().quit(); // First quit WebDriver session gracefully
                 drivers.remove(); // Remove WebDriver reference from the ThreadLocal variable.
             } catch (Exception e) {
-                System.out.println("Unable to gracefully quit WebDriver.");
+                LoggingUtils.logErr("Unable to gracefully quit WebDriver.");
             }
         }
     }

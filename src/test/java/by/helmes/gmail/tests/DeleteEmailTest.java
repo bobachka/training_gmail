@@ -1,6 +1,7 @@
 package by.helmes.gmail.tests;
 
 import by.helmes.gmail.core.FrameworkCore;
+import by.helmes.gmail.core.utils.LoggingUtils;
 import by.helmes.gmail.entities.helpers.login.HomeHelper;
 import by.helmes.gmail.entities.helpers.login.LoginHelper;
 import by.helmes.gmail.entities.helpers.login.PasswordHelper;
@@ -17,7 +18,6 @@ public class DeleteEmailTest extends BaseTest {
     private String login;
     private String password;
 
-    //TODO don't forget to add few methods with the @Test annotation
 
     @Parameters({"fileName"})
     @BeforeClass
@@ -50,7 +50,7 @@ public class DeleteEmailTest extends BaseTest {
     @Description(value = "Deleting email'")
     public void deleteEmail() {
         long id = Thread.currentThread().getId();
-        System.out.println("Delete Email tests: Thread id is " + id);
+        LoggingUtils.logInfo("Delete Email tests: Thread id is " + id);
 
         int unreadEmailsListBefore = homeHelper.countUnreadEmails();
 

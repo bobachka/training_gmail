@@ -7,13 +7,13 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class NewEmailPage extends AbstractPage {
-    private static String receiverField = "//*[@name=\"to\"]";
-    //TODO are you ready that static strings are required here?
-    private String subjectField = "//*[@name=\"subjectbox\"]";
-    private static String bodyField = "//*[@class=\"Am Al editable LW-avf tS-tW\"]";
-    private static String sendBtn = "//*[@class=\"T-I J-J5-Ji aoO v7 T-I-atl L3\"]";
+    private final String receiverField = "//*[@name=\"to\"]";
+    private final String subjectField = "//*[@name=\"subjectbox\"]";
+    private final String bodyField = "//*[@class=\"Am Al editable LW-avf tS-tW\"]";
+    private final String sendBtn = "//*[@class=\"T-I J-J5-Ji aoO v7 T-I-atl L3\"]";
 
     public NewEmailPage(WebDriver driver) {
         super(driver);
@@ -52,7 +52,9 @@ public class NewEmailPage extends AbstractPage {
         waitForElementVisible(getElementBy(sendBtn));
         getElement(sendBtn).click();
         //waitForElementInvisible(getElementBy(sendBtn));
-        wait(5000);
+        //wait(5000);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
         return new HomePage(driver);
     }
 

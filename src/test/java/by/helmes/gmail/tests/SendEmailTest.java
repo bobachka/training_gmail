@@ -2,6 +2,7 @@ package by.helmes.gmail.tests;
 
 
 import by.helmes.gmail.core.FrameworkCore;
+import by.helmes.gmail.core.utils.LoggingUtils;
 import by.helmes.gmail.entities.helpers.login.HomeHelper;
 import by.helmes.gmail.entities.helpers.login.LoginHelper;
 import by.helmes.gmail.entities.helpers.login.PasswordHelper;
@@ -40,9 +41,9 @@ public class SendEmailTest extends BaseTest {
     @Test
     @Description(value = "Sending email'")
     public void sendEmail() {
-        //TODO remove threads for your final version and add loggers insted system.out
+        //TODO remove threads for your final version
         long id = Thread.currentThread().getId();
-        System.out.println("Send Email tests: Thread id is " + id);
+        LoggingUtils.logInfo("Send Email tests: Thread id is " + id);
 
         loginHelper.navigateToHomePage();
         loginHelper.fillInLogin(login);

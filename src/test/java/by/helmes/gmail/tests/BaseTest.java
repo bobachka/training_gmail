@@ -7,8 +7,6 @@ import org.openqa.selenium.WebDriver;
 
 public abstract class BaseTest {
 
-    //TODO try to use private approach. If some methods can be marked as private, mark it as private
-    protected String fileName;
     protected WebDriver driver;
     private DriverManager driverManager;
 
@@ -18,7 +16,6 @@ public abstract class BaseTest {
     }
 
     protected void readConfigFile(String fileName) {
-        this.fileName = fileName;
         FrameworkCore.init(fileName);
     }
 

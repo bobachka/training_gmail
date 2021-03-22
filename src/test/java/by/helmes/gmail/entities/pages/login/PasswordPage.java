@@ -4,9 +4,8 @@ import by.helmes.gmail.entities.pages.AbstractPage;
 import org.openqa.selenium.WebDriver;
 
 public class PasswordPage extends AbstractPage {
-    //private static String passwordField = "//input[@type=\"password\"]";
-    private static String passwordField = "//*[@name=\"password\"]";
-    private static String nextBtn = "//*[@id=\"passwordNext\"]";
+    private final String passwordField = "//*[@name=\"password\"]";
+    private final String nextBtn = "//*[@id=\"passwordNext\"]";
 
     public PasswordPage (WebDriver driver){
         super(driver);

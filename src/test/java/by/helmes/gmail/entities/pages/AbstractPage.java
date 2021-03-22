@@ -1,5 +1,6 @@
 package by.helmes.gmail.entities.pages;
 
+import by.helmes.gmail.core.utils.LoggingUtils;
 import by.helmes.gmail.core.utils.PauseLength;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -16,45 +17,52 @@ public class AbstractPage {
         this.driver = driver;
     }
 
-
-    //TODO access can be protected for such kind of methods. Try to don't use public methods if it possible
-    public void openUrl(String url) {
+    protected void openUrl(String url) {
         driver.manage().window().maximize();
         driver.get(url);
     }
 
-    public void waitForElementVisible(final By by) {
+    protected void waitForElementVisible(final By by) {
         try {
             WebDriverWait waiter = new WebDriverWait(driver, PauseLength.AVG.value());
             waiter.until(ExpectedConditions.visibilityOfElementLocated(by));
         } catch (Throwable e) {
-            System.out.println(e.getLocalizedMessage());
+            LoggingUtils.logErr(e.getLocalizedMessage());
         }
     }
 
-    public void waitForElementPresence(final By by) {
+    protected void waitForElementPresence(final By by) {
         try {
             WebDriverWait waiter = new WebDriverWait(driver, PauseLength.AVG.value());
             waiter.until(ExpectedConditions.presenceOfElementLocated(by));
         } catch (Throwable e) {
-            System.out.println(e.getLocalizedMessage());
+            LoggingUtils.logErr(e.getLocalizedMessage());
         }
     }
 
-    public void waitForElementClickable(final By by) {
+    protected void waitForElementClickable(final By by) {
         try {
             WebDriverWait waiter = new WebDriverWait(driver, PauseLength.MAX.value());
             waiter.until(ExpectedConditions.elementToBeClickable(by));
         } catch (Throwable e) {
-            System.out.println(e.getLocalizedMessage());
+            LoggingUtils.logErr(e.getLocalizedMessage());
         }
     }
 
-    public static By getElementBy(String xpath) {
+    protected void waitForTextChange (final By by, String expectedText){
+        try {
+            WebDriverWait waiter = new WebDriverWait(driver, PauseLength.MAX.value());
+            waiter.until(ExpectedConditions.invisibilityOfElementWithText(by, expectedText));
+        } catch (Throwable e) {
+            LoggingUtils.logErr(e.getLocalizedMessage());
+        }
+    }
+
+    protected static By getElementBy(String xpath) {
         return By.xpath(xpath);
     }
 
-    public WebElement getElement(String xpath) {
+    protected WebElement getElement(String xpath) {
         try {
             return driver.findElement(By.xpath(xpath));
         } catch (NoSuchElementException e) {
@@ -62,7 +70,7 @@ public class AbstractPage {
         }
     }
 
-    public WebElement getElement(By selector) {
+    protected WebElement getElement(By selector) {
         try {
             return driver.findElement(selector);
         } catch (NoSuchElementException e) {
@@ -70,30 +78,28 @@ public class AbstractPage {
         }
     }
 
-    public List<WebElement> getElements(String xpath) {
+    protected List<WebElement> getElements(String xpath) {
         return driver.findElements(By.xpath(xpath));
     }
 
 
     //TODO try to avoid all thread sleepers
-    public static void wait(int milliseconds) {
+    protected static void wait(int milliseconds) {
         try {
             Thread.sleep(milliseconds);
-
-
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    public void changeWindow() {
+    protected void changeWindow() {
         Set<String> handles = driver.getWindowHandles();
         for (String s : handles) {
             driver.switchTo().window(s);
         }
     }
 
-    public void hoverOnItem(String item) {
+    protected void hoverOnItem(String item) {
         Actions action = new Actions(driver);
         WebElement element = getElement(item);
         action.moveToElement(element).perform();
