@@ -16,6 +16,8 @@ public class AbstractPage {
         this.driver = driver;
     }
 
+
+    //TODO access can be protected for such kind of methods. Try to don't use public methods if it possible
     public void openUrl(String url) {
         driver.manage().window().maximize();
         driver.get(url);
@@ -72,6 +74,8 @@ public class AbstractPage {
         return driver.findElements(By.xpath(xpath));
     }
 
+
+    //TODO try to avoid all thread sleepers
     public static void wait(int milliseconds) {
         try {
             Thread.sleep(milliseconds);

@@ -10,7 +10,8 @@ import java.util.Random;
 
 public class NewEmailPage extends AbstractPage {
     private static String receiverField = "//*[@name=\"to\"]";
-    private static String subjectField = "//*[@name=\"subjectbox\"]";
+    //TODO are you ready that static strings are required here?
+    private String subjectField = "//*[@name=\"subjectbox\"]";
     private static String bodyField = "//*[@class=\"Am Al editable LW-avf tS-tW\"]";
     private static String sendBtn = "//*[@class=\"T-I J-J5-Ji aoO v7 T-I-atl L3\"]";
 
