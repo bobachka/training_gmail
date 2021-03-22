@@ -11,7 +11,7 @@
         </layout>
     </appender>
     <appender name="FileAppender" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="messages"/>
+        <param name="File" value="messages.txt"/>
         <param name="DatePattern" value="'-'yyyy-MM-dd"/>
         <param name="Encoding" value="utf-8"/>
         <layout class="org.apache.log4j.PatternLayout">
