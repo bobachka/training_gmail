@@ -17,6 +17,7 @@ public class DeleteEmailTest extends BaseTest {
     private String login;
     private String password;
 
+    //TODO don't forget to add few methods with the @Test annotation
 
     @Parameters({"fileName"})
     @BeforeClass
