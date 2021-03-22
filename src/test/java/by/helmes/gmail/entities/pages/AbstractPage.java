@@ -2,7 +2,10 @@ package by.helmes.gmail.entities.pages;
 
 import by.helmes.gmail.core.utils.LoggingUtils;
 import by.helmes.gmail.core.utils.PauseLength;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,7 +16,7 @@ import java.util.Set;
 public class AbstractPage {
     protected WebDriver driver;
 
-    public AbstractPage (WebDriver driver){
+    public AbstractPage(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -49,10 +52,10 @@ public class AbstractPage {
         }
     }
 
-    protected void waitForTextChange (final By by, String expectedText){
+    protected void waitForTextChange(final By by, String expectedText) {
         try {
             WebDriverWait waiter = new WebDriverWait(driver, PauseLength.MAX.value());
-            waiter.until(ExpectedConditions.invisibilityOfElementWithText(by, expectedText));
+            waiter.until(ExpectedConditions.textToBePresentInElementLocated(by, expectedText));
         } catch (Throwable e) {
             LoggingUtils.logErr(e.getLocalizedMessage());
         }
@@ -80,16 +83,6 @@ public class AbstractPage {
 
     protected List<WebElement> getElements(String xpath) {
         return driver.findElements(By.xpath(xpath));
-    }
-
-
-    //TODO try to avoid all thread sleepers
-    protected static void wait(int milliseconds) {
-        try {
-            Thread.sleep(milliseconds);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     protected void changeWindow() {

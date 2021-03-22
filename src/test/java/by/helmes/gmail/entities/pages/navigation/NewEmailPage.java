@@ -7,13 +7,13 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 public class NewEmailPage extends AbstractPage {
     private final String receiverField = "//*[@name=\"to\"]";
     private final String subjectField = "//*[@name=\"subjectbox\"]";
     private final String bodyField = "//*[@class=\"Am Al editable LW-avf tS-tW\"]";
     private final String sendBtn = "//*[@class=\"T-I J-J5-Ji aoO v7 T-I-atl L3\"]";
+    private final String inboxCounter = "//*[@class=\"bsU\"]";
 
     public NewEmailPage(WebDriver driver) {
         super(driver);
@@ -48,13 +48,16 @@ public class NewEmailPage extends AbstractPage {
         return getNewEmailPage();
     }
 
+    public String getInboxTotal() {
+        waitForElementVisible(getElementBy(inboxCounter));
+        return getElement(inboxCounter).getText();
+    }
+
     public HomePage sendEmail() {
         waitForElementVisible(getElementBy(sendBtn));
+        String inboxTotalBeforeSending = getInboxTotal();
         getElement(sendBtn).click();
-        //waitForElementInvisible(getElementBy(sendBtn));
-        //wait(5000);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-
+        waitForTextChange(getElementBy(inboxCounter), String.valueOf(Integer.parseInt(inboxTotalBeforeSending) + 1));
         return new HomePage(driver);
     }
 

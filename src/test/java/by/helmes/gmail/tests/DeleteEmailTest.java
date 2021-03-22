@@ -19,10 +19,12 @@ public class DeleteEmailTest extends BaseTest {
     private String password;
 
 
-    @Parameters({"fileName"})
+//    @Parameters({"fileName"})
+//    @BeforeClass
+//    public void setupClass(String fileName) {
     @BeforeClass
-    public void setupClass(String fileName) {
-        readConfigFile(fileName);
+    public void setupClass() {
+        readConfigFile(null);
 
         login = FrameworkCore.login;
         password = FrameworkCore.password;
@@ -52,13 +54,13 @@ public class DeleteEmailTest extends BaseTest {
         long id = Thread.currentThread().getId();
         LoggingUtils.logInfo("Delete Email tests: Thread id is " + id);
 
-        int unreadEmailsListBefore = homeHelper.countUnreadEmails();
+        int unreadEmailsListBefore = homeHelper.getInboxResultsTotal();
 
         homeHelper.deleteLastUnreadEmail();
 
-        int unreadEmailsListAfter = homeHelper.countUnreadEmails();
+        int unreadEmailsListAfter = homeHelper.getInboxResultsTotal();
 
-        Assert.assertEquals(unreadEmailsListBefore, unreadEmailsListAfter, "Email has not been deleted");
+        Assert.assertEquals(unreadEmailsListBefore - 1, unreadEmailsListAfter, "Email has not been deleted:");
     }
 
     @AfterMethod

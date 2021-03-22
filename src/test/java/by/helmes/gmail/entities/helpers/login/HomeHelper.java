@@ -29,8 +29,4 @@ public class HomeHelper extends AbstractHelper {
         return homePage.deleteLastUnreadEmail();
     }
 
-    public int countUnreadEmails(){
-        return homePage.countUnreadEmails();
-    }
-
 }

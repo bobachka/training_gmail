@@ -2,11 +2,7 @@ package by.helmes.gmail.entities.pages.login;
 
 import by.helmes.gmail.entities.pages.AbstractPage;
 import by.helmes.gmail.entities.pages.navigation.NewEmailPage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
 
 public class HomePage extends AbstractPage {
     private final String logo = "//*[@class=\"gb_le gb_qc gb_je\"]";
@@ -38,28 +34,22 @@ public class HomePage extends AbstractPage {
     }
 
     public String getInboxTotal() {
-        waitForElementVisible(getElementBy(inboxCounter));
-        return getElement(inboxCounter).getText();
+        try {
+            waitForElementVisible(getElementBy(inboxCounter));
+            return getElement(inboxCounter).getText();
+        } catch (Exception e) {
+            return "0";
+        }
     }
 
     public HomePage deleteLastUnreadEmail() {
-        //WebElement lastUnreadEmailElement = getElement(lastUnreadEmail);
         waitForElementPresence(getElementBy(lastUnreadCheckbox));
         getElement(lastUnreadCheckbox).click();
         waitForElementPresence(getElementBy(trashBin));
+        String inboxTotalBeforeDeleting = getInboxTotal();
         getElement(trashBin).click();
-
-//TODO  replace with implicit waiter
-        wait(5000);
-        //driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-
-        //waitForTextChange(getElementBy(inboxCounter),getInboxTotal());
+        waitForTextChange(getElementBy(inboxCounter), String.valueOf(Integer.parseInt(inboxTotalBeforeDeleting) - 1));
         return this;
-    }
-
-    public int countUnreadEmails() {
-        List<WebElement> unreadEmailsList = driver.findElements(By.xpath(unreadEmails));
-        return unreadEmailsList.size();
     }
 
 }

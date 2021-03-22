@@ -41,7 +41,6 @@ public class SendEmailTest extends BaseTest {
     @Test
     @Description(value = "Sending email'")
     public void sendEmail() {
-        //TODO remove threads for your final version
         long id = Thread.currentThread().getId();
         LoggingUtils.logInfo("Send Email tests: Thread id is " + id);
 

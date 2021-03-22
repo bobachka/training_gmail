@@ -7,7 +7,7 @@ public class PasswordPage extends AbstractPage {
     private final String passwordField = "//*[@name=\"password\"]";
     private final String nextBtn = "//*[@id=\"passwordNext\"]";
 
-    public PasswordPage (WebDriver driver){
+    public PasswordPage(WebDriver driver) {
         super(driver);
     }
 
