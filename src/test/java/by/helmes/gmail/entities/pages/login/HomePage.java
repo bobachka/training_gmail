@@ -9,7 +9,6 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class HomePage extends AbstractPage {
-
     //private static String logo = "//*[@href=\"#inbox\"]";
     private static String logo = "//*[@class=\"gb_le gb_qc gb_je\"]";
     //private static String composeEmailBtn = "//div[contains(text(),'Написать']";

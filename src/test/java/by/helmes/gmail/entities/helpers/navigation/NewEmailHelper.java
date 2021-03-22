@@ -6,7 +6,6 @@ import by.helmes.gmail.entities.pages.navigation.NewEmailPage;
 import org.openqa.selenium.WebDriver;
 
 public class NewEmailHelper extends AbstractHelper {
-
     private NewEmailPage newEmailPage;
 
     public NewEmailHelper (WebDriver driver){

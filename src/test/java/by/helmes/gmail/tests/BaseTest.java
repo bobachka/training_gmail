@@ -6,10 +6,9 @@ import by.helmes.gmail.core.driver.DriverManager;
 import org.openqa.selenium.WebDriver;
 
 public abstract class BaseTest {
-
-    private DriverManager driverManager;
     protected String fileName;
     protected WebDriver driver;
+    private DriverManager driverManager;
 
     protected void setupTest() {
         driverManager = DriverFactory.valueOf(FrameworkCore.browser.toUpperCase()).getDriverManager();

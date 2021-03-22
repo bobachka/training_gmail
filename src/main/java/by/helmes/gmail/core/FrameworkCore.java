@@ -3,14 +3,12 @@ package by.helmes.gmail.core;
 import by.helmes.gmail.core.utils.IOUtils;
 
 public class FrameworkCore {
-
-    private static String fileName;
     public static String browser;
     public static String baseUrl;
     public static String sampleText;
     public static String login;
     public static String password;
-
+    private static String fileName;
     private static boolean isInit;
 
 

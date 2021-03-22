@@ -9,7 +9,7 @@ import static io.github.bonigarcia.wdm.config.DriverManagerType.FIREFOX;
 public class FirefoxDriverManager extends DriverManager {
     @Override
     protected WebDriver createDriver() {
-        System.out.println("Initializing FF Driver"); // Change to Loggers
+        System.out.println("Initializing FF Driver");
         WebDriverManager.getInstance(FIREFOX).setup();
 
         return new FirefoxDriver();

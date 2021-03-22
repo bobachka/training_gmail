@@ -15,7 +15,7 @@
 
         <maven-surefire-plugin.version>2.20.1</maven-surefire-plugin.version>
         <aspectj.version>1.8.10</aspectj.version>
-        <allure-testng.version>2.6.0</allure-testng.version>
+        <allure-testng.version>2.13.3</allure-testng.version>
 
     </properties>
 
@@ -46,17 +46,13 @@
                         <systemProperties>
                             <property>
                                 <name>allure.results.directory</name>
-                                <value>allure-results</value>
+                                <value>target/allure-results</value>
                             </property>
-<!--                            <property>-->
-<!--                                <name>fileName</name>-->
-<!--                            </property>-->
                         </systemProperties>
-
                         <!-- Suite testng xml file to consider for test execution -->
-<!--                        <suiteXmlFiles>-->
-<!--                            <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>-->
-<!--                        </suiteXmlFiles>-->
+                        <suiteXmlFiles>
+                            <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+                        </suiteXmlFiles>
                     </configuration>
 
                     <dependencies>

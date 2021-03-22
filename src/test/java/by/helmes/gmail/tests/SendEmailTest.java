@@ -54,7 +54,7 @@ public class SendEmailTest extends BaseTest {
 
         int inboxResultsAfter = homeHelper.getInboxResultsTotal();
 
-        Assert.assertNotEquals(inboxResultsBefore, inboxResultsAfter);
+        Assert.assertNotEquals(inboxResultsBefore, inboxResultsAfter, "Email has not been sent");
     }
 
     @AfterMethod

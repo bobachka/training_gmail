@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Gmail suite" parallel="classes" thread-count="3">
-    <test name="send Email tests">
+    <test name="Send Email">
         <parameter name="fileName" value="configuration"/>
         <classes>
             <class name="by.helmes.gmail.tests.SendEmailTest"/>
         </classes>
     </test>
-    <test name="Delete Email tests">
+    <test name="Delete Email">
         <parameter name="fileName" value="configuration"/>
         <classes>
             <class name="by.helmes.gmail.tests.DeleteEmailTest"/>

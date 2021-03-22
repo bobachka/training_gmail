@@ -14,7 +14,6 @@ public class DeleteEmailTest extends BaseTest {
     private PasswordHelper passwordHelper;
     private HomeHelper homeHelper;
     private NewEmailHelper newEmailHelper;
-
     private String login;
     private String password;
 
@@ -58,7 +57,7 @@ public class DeleteEmailTest extends BaseTest {
 
         int unreadEmailsListAfter = homeHelper.countUnreadEmails();
 
-        Assert.assertEquals(unreadEmailsListBefore, unreadEmailsListAfter);
+        Assert.assertEquals(unreadEmailsListBefore, unreadEmailsListAfter, "Email has not been deleted");
     }
 
     @AfterMethod

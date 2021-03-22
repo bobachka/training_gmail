@@ -24,16 +24,6 @@ public class NewEmailPage extends AbstractPage {
         return newEmailPage;
     }
 
-    private String randomiseSampleText(String sampleText) {
-        String[] splitText = sampleText.split(" ");
-        StringBuilder stringBuilder = new StringBuilder();
-        Random random = new Random();
-        for (int i = 0; i < splitText.length; i++) {
-            stringBuilder.append(splitText[random.nextInt(splitText.length - 1)]);
-        }
-        return stringBuilder.toString();
-    }
-
     public NewEmailPage fillReceiver(String receiver) {
         changeWindow();
         waitForElementClickable(getElementBy(receiverField));
@@ -60,9 +50,18 @@ public class NewEmailPage extends AbstractPage {
     public HomePage sendEmail() {
         waitForElementVisible(getElementBy(sendBtn));
         getElement(sendBtn).click();
-//        waitForElementInvisible(getElementBy(sendBtn));
+        //waitForElementInvisible(getElementBy(sendBtn));
         wait(5000);
         return new HomePage(driver);
     }
 
+    private String randomiseSampleText(String sampleText) {
+        String[] splitText = sampleText.split(" ");
+        StringBuilder stringBuilder = new StringBuilder();
+        Random random = new Random();
+        for (int i = 0; i < splitText.length; i++) {
+            stringBuilder.append(splitText[random.nextInt(splitText.length - 1)]);
+        }
+        return stringBuilder.toString();
+    }
 }
