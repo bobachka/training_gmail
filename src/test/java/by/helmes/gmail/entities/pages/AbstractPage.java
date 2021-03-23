@@ -2,10 +2,7 @@ package by.helmes.gmail.entities.pages;
 
 import by.helmes.gmail.core.utils.LoggingUtils;
 import by.helmes.gmail.core.utils.PauseLength;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -92,9 +89,24 @@ public class AbstractPage {
         }
     }
 
+    protected void scrollDown() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,300)");
+    }
+
+    protected void scrollUp() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,-300)");
+    }
+
     protected void hoverOnItem(String item) {
         Actions action = new Actions(driver);
         WebElement element = getElement(item);
         action.moveToElement(element).perform();
+    }
+
+    protected void navigateBack(){
+        driver.navigate().back();
+        driver.navigate().refresh();
     }
 }

@@ -6,6 +6,12 @@
             <class name="by.helmes.gmail.tests.SendEmailTest"/>
         </classes>
     </test>
+    <test name="Edit Email">
+        <parameter name="fileName" value="configuration"/>
+        <classes>
+            <class name="by.helmes.gmail.tests.EditEmailTest"/>
+        </classes>
+    </test>
     <test name="Delete Email">
         <parameter name="fileName" value="configuration"/>
         <classes>

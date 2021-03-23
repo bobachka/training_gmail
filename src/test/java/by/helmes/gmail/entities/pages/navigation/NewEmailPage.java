@@ -13,6 +13,18 @@ public class NewEmailPage extends AbstractPage {
     private final String subjectField = "//*[@name=\"subjectbox\"]";
     private final String bodyField = "//*[@class=\"Am Al editable LW-avf tS-tW\"]";
     private final String sendBtn = "//*[@class=\"T-I J-J5-Ji aoO v7 T-I-atl L3\"]";
+    private final String minimiseBtn = "//img[@class=\"Hl\"]";
+    private final String restoreBtn = "//img[@class=\"Hk\"]";
+    private final String expandBtn = "//img[@class=\"Hq aUG\"]";
+    private final String shrinkBtn = "//img[@class=\"Hq aUH\"]";
+    private final String textFormattingBtn = "//div[@class=\"dv\"]";
+    //private final String boldBtn = "//div[@class=\"J-Z-aEu-I J-Z-I J-J5-Ji J-Z-I-Jp\"]";
+    private final String boldBtn = "//*[@command=\"+bold\"]";
+    private final String ItalicBtn = "//div[@class=\"J-Z-aEu-I J-Z-I J-J5-Ji\"]";
+    private final String colorsBtn = "//div[@class=\"eS  aaA aaB\"]";
+    private final String redColorBtn = "//div[@class=\"T-Kw-Jt\"]";
+    private final String redColorBtn2 = "//div[@title=\"RGB (255, 0, 0)\"]";
+    private final String closeBtn = "//img[@class=\"Ha\"]";
     private final String inboxCounter = "//*[@class=\"bsU\"]";
 
     public NewEmailPage(WebDriver driver) {
@@ -31,21 +43,25 @@ public class NewEmailPage extends AbstractPage {
         getElement(receiverField).click();
         getElement(receiverField).sendKeys(receiver);
         getElement(receiverField).sendKeys(Keys.ENTER);
-        return getNewEmailPage();
+        return this;
     }
 
     public NewEmailPage fillSubject() {
         waitForElementClickable(getElementBy(subjectField));
         getElement(subjectField).click();
-        getElement(subjectField).sendKeys(randomiseSampleText(FrameworkCore.sampleText));
-        return getNewEmailPage();
+        getElement(subjectField).sendKeys(randomiseText());
+        return this;
     }
 
     public NewEmailPage fillBody() {
         waitForElementClickable(getElementBy(bodyField));
         getElement(bodyField).click();
-        getElement(bodyField).sendKeys(randomiseSampleText(FrameworkCore.sampleText));
-        return getNewEmailPage();
+        getElement(bodyField).sendKeys(randomiseText());
+        return this;
+    }
+
+    public String getBody() {
+        return getElement(bodyField).getText();
     }
 
     public String getInboxTotal() {
@@ -53,7 +69,7 @@ public class NewEmailPage extends AbstractPage {
         return getElement(inboxCounter).getText();
     }
 
-    public HomePage sendEmail() {
+    public HomePage sendNewEmail() {
         waitForElementVisible(getElementBy(sendBtn));
         String inboxTotalBeforeSending = getInboxTotal();
         getElement(sendBtn).click();
@@ -61,7 +77,86 @@ public class NewEmailPage extends AbstractPage {
         return new HomePage(driver);
     }
 
-    private String randomiseSampleText(String sampleText) {
+    public NewEmailPage minimiseNewEmail() {
+        waitForElementVisible(getElementBy(minimiseBtn));
+        getElement(minimiseBtn).click();
+        return this;
+    }
+
+    public NewEmailPage restoreNewEmail() {
+        waitForElementVisible(getElementBy(restoreBtn));
+        getElement(restoreBtn).click();
+        return this;
+    }
+
+    public NewEmailPage maximiseNewEmail() {
+        waitForElementVisible(getElementBy(expandBtn));
+        getElement(expandBtn).click();
+        return this;
+    }
+
+    public NewEmailPage optimiseNewEmail() {
+        waitForElementVisible(getElementBy(shrinkBtn));
+        getElement(shrinkBtn).click();
+        return this;
+    }
+
+    public String addTestText() {
+        String testText = randomiseText();
+        waitForElementClickable(getElementBy(bodyField));
+        getElement(bodyField).click();
+        getElement(bodyField).sendKeys(testText);
+        return testText;
+    }
+
+    public NewEmailPage openTextFormatting() {
+        //waitForElementVisible(getElementBy(textFormattingBtn));
+        waitForElementClickable(getElementBy(textFormattingBtn));
+        getElement(textFormattingBtn).click();
+        return this;
+    }
+
+    public NewEmailPage selectBody() {
+        waitForElementClickable(getElementBy(bodyField));
+        getElement(bodyField).click();
+        getElement(bodyField).sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        return this;
+    }
+
+    public NewEmailPage makeBodyBold() {
+//        waitForElementClickable(getElementBy(bodyField));
+//        getElement(bodyField).click();
+//        getElement(bodyField).sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        waitForElementClickable(getElementBy(boldBtn));
+        getElement(boldBtn).click();
+        return this;
+    }
+
+    public NewEmailPage makeBodyItalic() {
+//        waitForElementClickable(getElementBy(bodyField));
+//        getElement(bodyField).click();
+//        getElement(bodyField).sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        getElement(bodyField).sendKeys(Keys.chord(Keys.CONTROL, "i"));
+        return this;
+    }
+
+    public NewEmailPage makeBodyRed() {
+        waitForElementClickable(getElementBy(bodyField));
+        getElement(bodyField).click();
+        getElement(bodyField).sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        waitForElementClickable(getElementBy(colorsBtn));
+        getElement(colorsBtn).click();
+        getElement(redColorBtn2).click();
+        return this;
+    }
+
+    public HomePage closeNewEmail() {
+        waitForElementVisible(getElementBy(closeBtn));
+        getElement(closeBtn).click();
+        return new HomePage(driver);
+    }
+
+    public String randomiseSampleText(String sampleText) {
         String[] splitText = sampleText.split(" ");
         StringBuilder stringBuilder = new StringBuilder();
         Random random = new Random();
@@ -69,5 +164,9 @@ public class NewEmailPage extends AbstractPage {
             stringBuilder.append(splitText[random.nextInt(splitText.length - 1)]);
         }
         return stringBuilder.toString();
+    }
+
+    private String randomiseText() {
+        return randomiseSampleText(FrameworkCore.sampleText);
     }
 }
