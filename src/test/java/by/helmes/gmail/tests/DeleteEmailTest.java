@@ -8,10 +8,7 @@ import by.helmes.gmail.entities.helpers.navigation.DeletedEmailHelper;
 import by.helmes.gmail.entities.helpers.navigation.NewEmailHelper;
 import io.qameta.allure.Description;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class DeleteEmailTest extends BaseTest {
     private LoginHelper loginHelper;
@@ -23,13 +20,9 @@ public class DeleteEmailTest extends BaseTest {
     private String password;
 
 
-    //    @Parameters({"fileName"})
-//    @BeforeClass
-//    public void setupClass(String fileName) {
+    @Parameters({"fileName"})
     @BeforeClass
-    public void setupClass() {
-        readConfigFile(null);
-
+    public void setupClass(String fileName) {
         login = FrameworkCore.login;
         password = FrameworkCore.password;
     }
@@ -47,7 +40,6 @@ public class DeleteEmailTest extends BaseTest {
         loginHelper.navigateToHomePage();
         loginHelper.fillInLogin(login);
         passwordHelper.fillInPassword(password);
-
     }
 
 

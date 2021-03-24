@@ -19,10 +19,6 @@ public class NewEmailHelper extends AbstractHelper {
                 .fillBody();
     }
 
-//    public String getSubjAndBody() {
-//        return newEmailPage.randomiseSampleText;
-//    }
-
     public String getBody(){
         return newEmailPage.getBody();
     }

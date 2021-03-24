@@ -10,7 +10,6 @@ public class SentEmailPage extends AbstractPage {
         super(driver);
     }
 
-
     public int countSendEmails() {
         return getElements(sentItem).size();
     }

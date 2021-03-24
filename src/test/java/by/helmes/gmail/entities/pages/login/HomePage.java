@@ -8,7 +8,7 @@ import by.helmes.gmail.entities.pages.navigation.SentEmailPage;
 import org.openqa.selenium.WebDriver;
 
 public class HomePage extends AbstractPage {
-    private final String logo = "//*[@class=\"gb_le gb_qc gb_je\"]";
+    private final String logo = "//*[@class=\"gb_uc\"]";
     private final String composeEmailBtn = "//*[@class=\"T-I T-I-KE L3\"]";
     private final String inboxCounter = "//*[@class=\"bsU\"]";
     private final String lastUnreadEmail = "//tr[@class=\"zA zE\"][1]";
@@ -59,21 +59,21 @@ public class HomePage extends AbstractPage {
         return this;
     }
 
-    public DraftEmailPage navigateToDraft (){
+    public DraftEmailPage navigateToDraft() {
         waitForElementPresence(getElementBy(draftLink));
         getElement(draftLink).click();
         return new DraftEmailPage(driver);
     }
 
 
-    public SentEmailPage navigateToSent (){
+    public SentEmailPage navigateToSent() {
         waitForElementPresence(getElementBy(sentLink));
         getElement(sentLink).click();
         return new SentEmailPage(driver);
     }
 
 
-    public DeletedEmailPage navigateToDeleted (){
+    public DeletedEmailPage navigateToDeleted() {
         hoverOnItem(sentLink);
         scrollDown();
         waitForElementClickable(getElementBy(moreBtn));
@@ -84,7 +84,7 @@ public class HomePage extends AbstractPage {
         return new DeletedEmailPage(driver);
     }
 
-    public DeletedEmailPage navigateToDeletedAgain (){
+    public DeletedEmailPage navigateToDeletedAgain() {
         hoverOnItem(sentLink);
         scrollDown();
         waitForElementPresence(getElementBy(deletedLink));

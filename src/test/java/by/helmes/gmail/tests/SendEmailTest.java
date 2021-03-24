@@ -9,10 +9,7 @@ import by.helmes.gmail.entities.helpers.navigation.NewEmailHelper;
 import by.helmes.gmail.entities.helpers.navigation.SentEmailHelper;
 import io.qameta.allure.Description;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class SendEmailTest extends BaseTest {
     private HomeHelper homeHelper;
@@ -22,12 +19,9 @@ public class SendEmailTest extends BaseTest {
     private String login;
     private String password;
 
-//    @Parameters({"fileName"})
-//    @BeforeClass
-//    public void setupClass(String fileName) {
+    @Parameters({"fileName"})
     @BeforeClass
-    public void setupClass() {
-        readConfigFile(null);
+    public void setupClass(String fileName) {
         login = FrameworkCore.login;
         password = FrameworkCore.password;
     }

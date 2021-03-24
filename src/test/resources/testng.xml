@@ -18,4 +18,9 @@
             <class name="by.helmes.gmail.tests.DeleteEmailTest"/>
         </classes>
     </test>
+<!--    <test name="Factory Test">-->
+<!--        <classes>-->
+<!--            <class name="by.helmes.gmail.tests.factory.LoginTestFactory"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>

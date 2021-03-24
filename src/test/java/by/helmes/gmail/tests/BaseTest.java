@@ -15,6 +15,11 @@ public abstract class BaseTest {
         driver = driverManager.getDriver();
     }
 
+    protected void setupTest(String browser) {
+        driverManager = DriverFactory.valueOf(browser.toUpperCase()).getDriverManager();
+        driver = driverManager.getDriver();
+    }
+
     protected void readConfigFile(String fileName) {
         FrameworkCore.init(fileName);
     }
