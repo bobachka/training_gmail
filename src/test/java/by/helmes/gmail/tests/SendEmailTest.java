@@ -40,7 +40,6 @@ public class SendEmailTest extends BaseTest {
         passwordHelper.fillInPassword(password);
     }
 
-
     @Test
     @Description(value = "This test is to verify that inbox counter increases after an email is sent")
     public void sendEmailAndCheckInboxCounter() {

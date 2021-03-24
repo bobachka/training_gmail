@@ -27,4 +27,9 @@ public abstract class BaseTest {
     protected void cleanupTest() {
         driverManager.quitDriver();
     }
+
+    //TODO
+    private void method(){
+
+    }
 }

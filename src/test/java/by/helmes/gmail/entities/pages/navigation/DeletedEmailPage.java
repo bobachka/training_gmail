@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class DeletedEmailPage extends AbstractPage {
     private final String deletedItem = "//*[@class='aqN']";
-    private final String deletedLink = "//a[@href=\"https://mail.google.com/mail/u/0/#trash\"]";
+    private final String deletedLink = "//a[@href='https://mail.google.com/mail/u/0/#trash']";
     private final String allLink = "//a[@href=\"https://mail.google.com/mail/u/0/#all\"]";
 
     public DeletedEmailPage(WebDriver driver) {
@@ -18,6 +18,6 @@ public class DeletedEmailPage extends AbstractPage {
     }
 
     public void BackToHome(){
-        navigateBack();
+        navigateBackRefresh();
     }
 }
