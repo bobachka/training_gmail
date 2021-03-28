@@ -18,7 +18,7 @@ public class EditEmailTest extends BaseTest {
     @Parameters({"fileName"})
     @BeforeClass
     public void setupClass(String fileName) {
-        //readConfigFile(fileName);
+        readConfigFile(fileName);
 //    @BeforeClass
 //    public void setupClass() {
 //        readConfigFile(null);

@@ -148,7 +148,7 @@ public class NewEmailPage extends AbstractPage {
 
     public String randomiseText() {
         Date date = new Date();
-        return "Selenium" + date.toString();
+        return "Selenium" + date.getTime();
     }
 
 }

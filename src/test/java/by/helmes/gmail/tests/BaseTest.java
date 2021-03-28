@@ -11,14 +11,14 @@ public abstract class BaseTest {
     private DriverManager driverManager;
 
     protected void setupTest() {
-        initializing(FrameworkCore.browser.toUpperCase());
+        initialise(FrameworkCore.browser.toUpperCase());
     }
 
     protected void setupTest(String browser) {
-        initializing(browser.toUpperCase());
+        initialise(browser.toUpperCase());
     }
 
-    private void initializing(String browser){
+    private void initialise(String browser){
         driverManager = DriverFactory.valueOf(browser).getDriverManager();
         driver = driverManager.getDriver();
     }

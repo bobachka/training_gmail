@@ -23,6 +23,7 @@ public class DeleteEmailTest extends BaseTest {
     @Parameters({"fileName"})
     @BeforeClass
     public void setupClass(String fileName) {
+        readConfigFile(fileName);
         login = FrameworkCore.login;
         password = FrameworkCore.password;
     }

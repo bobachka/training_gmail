@@ -89,9 +89,14 @@ public class AbstractPage {
         }
     }
 
-    protected void scrollDown() {
+    private void scroll(int x, int y) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,300)");
+        js.executeScript(
+                "window.scrollBy(" + x + "," + y + ")");
+    }
+
+    protected void scrollDown() {
+        scroll(0, 300);
     }
 
     //TODO
@@ -100,10 +105,8 @@ public class AbstractPage {
     }
 
     protected void scrollUp() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,-300)");
+        scroll(0,-300);
     }
-
     protected void hoverOnItem(String item) {
         Actions action = new Actions(driver);
         WebElement element = getElement(item);
