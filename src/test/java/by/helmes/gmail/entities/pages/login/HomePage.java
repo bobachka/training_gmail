@@ -8,17 +8,17 @@ import by.helmes.gmail.entities.pages.navigation.SentEmailPage;
 import org.openqa.selenium.WebDriver;
 
 public class HomePage extends AbstractPage {
-    private final String logo = "//*[@class=\"gb_uc\"]";
-    private final String composeEmailBtn = "//*[@class=\"T-I T-I-KE L3\"]";
-    private final String inboxCounter = "//*[@class=\"bsU\"]";
-    private final String lastUnreadEmail = "//tr[@class=\"zA zE\"][1]";
-    private final String unreadEmails = "//tr[@class=\"zA zE\"]";
-    private final String lastUnreadCheckbox = "//*[@class=\"oZ-jc T-Jo J-J5-Ji \"][1]";
-    private final String trashBin = "//*[@class=\"T-I J-J5-Ji nX T-I-ax7 T-I-Js-Gs mA\"]";
-    private final String draftLink = "//div[@class=\"TN bzz aHS-bnq\"]";
-    private final String sentLink = "//a[@href=\"https://mail.google.com/mail/u/0/#sent\"]";
+    private final String logo = "//*[@class='gb_uc']";
+    private final String composeEmailBtn = "//*[@class='T-I T-I-KE L3']";
+    private final String inboxCounter = "//*[@class='bsU']";
+    private final String lastUnreadEmail = "//tr[@class='zA zE'][1]";
+    private final String unreadEmails = "//tr[@class='zA zE']";
+    private final String lastUnreadCheckbox = "//*[@class='oZ-jc T-Jo J-J5-Ji '][1]";
+    private final String trashBin = "//*[@class='T-I J-J5-Ji nX T-I-ax7 T-I-Js-Gs mA']";
+    private final String draftLink = "//div[@class='TN bzz aHS-bnq']";
+    private final String sentLink = "//a[@href='https://mail.google.com/mail/u/0/#sent']";
     private final String moreBtn = "//span[@class='J-Ke n4 ah9']";
-    private final String deletedLink = "//a[@href=\"https://mail.google.com/mail/u/0/#trash\"]";
+    private final String deletedLink = "//a[@href='https://mail.google.com/mail/u/0/#trash']";
 
     public HomePage(WebDriver driver) {
         super(driver);

@@ -5,8 +5,8 @@ import by.helmes.gmail.entities.pages.AbstractPage;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPage extends AbstractPage {
-    private final String loginField = "//*[@id=\"identifierId\"]";
-    private final String nextBtn = "//*[@id=\"identifierNext\"]";
+    private final String loginField = "//*[@id='identifierId']";
+    private final String nextBtn = "//*[@id='identifierNext']";
 
     public LoginPage(WebDriver driver) {
         super(driver);

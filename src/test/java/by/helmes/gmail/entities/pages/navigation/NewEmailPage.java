@@ -1,29 +1,28 @@
 package by.helmes.gmail.entities.pages.navigation;
 
-import by.helmes.gmail.core.FrameworkCore;
 import by.helmes.gmail.entities.pages.AbstractPage;
 import by.helmes.gmail.entities.pages.login.HomePage;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
-import java.util.Random;
+import java.util.Date;
 
 public class NewEmailPage extends AbstractPage {
-    private final String receiverField = "//*[@name=\"to\"]";
-    private final String subjectField = "//*[@name=\"subjectbox\"]";
-    private final String bodyField = "//*[@class=\"Am Al editable LW-avf tS-tW\"]";
-    private final String sendBtn = "//*[@class=\"T-I J-J5-Ji aoO v7 T-I-atl L3\"]";
-    private final String minimiseBtn = "//img[@class=\"Hl\"]";
-    private final String restoreBtn = "//img[@class=\"Hk\"]";
-    private final String expandBtn = "//img[@class=\"Hq aUG\"]";
-    private final String shrinkBtn = "//img[@class=\"Hq aUH\"]";
-    private final String textFormattingBtn = "//div[@class=\"dv\"]";
-    //private final String boldBtn = "//div[@class=\"J-Z-aEu-I J-Z-I J-J5-Ji J-Z-I-Jp\"]";
-    private final String boldBtn = "//*[@command=\"+bold\"]";
-    private final String colorsBtn = "//div[@class=\"eS  aaA aaB\"]";
-    private final String redColorBtn = "//div[@title=\"RGB (255, 0, 0)\"]";
-    private final String closeBtn = "//img[@class=\"Ha\"]";
-    private final String inboxCounter = "//*[@class=\"bsU\"]";
+    private final String receiverField = "//*[@name='to']";
+    private final String subjectField = "//*[@name='subjectbox']";
+    private final String bodyField = "//*[@class='Am Al editable LW-avf tS-tW']";
+    private final String sendBtn = "//*[@class='T-I J-J5-Ji aoO v7 T-I-atl L3']";
+    private final String minimiseBtn = "//img[@class='Hl']";
+    private final String restoreBtn = "//img[@class='Hk']";
+    private final String expandBtn = "//img[@class='Hq aUG']";
+    private final String shrinkBtn = "//img[@class='Hq aUH']";
+    private final String textFormattingBtn = "//div[@class='dv']";
+    //private final String boldBtn = "//div[@class='J-Z-aEu-I J-Z-I J-J5-Ji J-Z-I-Jp']";
+    private final String boldBtn = "//*[@command='+bold']";
+    private final String colorsBtn = "//div[@class='eS  aaA aaB']";
+    private final String redColorBtn = "//div[@title='RGB (255, 0, 0)']";
+    private final String closeBtn = "//img[@class='Ha']";
+    private final String inboxCounter = "//*[@class='bsU']";
 
     public NewEmailPage(WebDriver driver) {
         super(driver);
@@ -147,17 +146,9 @@ public class NewEmailPage extends AbstractPage {
         return new HomePage(driver);
     }
 
-    public String randomiseSampleText(String sampleText) {
-        String[] splitText = sampleText.split(" ");
-        StringBuilder stringBuilder = new StringBuilder();
-        Random random = new Random();
-        for (int i = 0; i < splitText.length; i++) {
-            stringBuilder.append(splitText[random.nextInt(splitText.length - 1)]);
-        }
-        return stringBuilder.toString();
+    public String randomiseText() {
+        Date date = new Date();
+        return "Selenium" + date.toString();
     }
 
-    private String randomiseText() {
-        return randomiseSampleText(FrameworkCore.sampleText);
-    }
 }
