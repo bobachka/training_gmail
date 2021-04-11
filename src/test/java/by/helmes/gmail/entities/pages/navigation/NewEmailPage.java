@@ -16,11 +16,6 @@ public class NewEmailPage extends AbstractPage {
     private final String restoreBtn = "//img[@class='Hk']";
     private final String expandBtn = "//img[@class='Hq aUG']";
     private final String shrinkBtn = "//img[@class='Hq aUH']";
-    private final String textFormattingBtn = "//div[@class='dv']";
-    //private final String boldBtn = "//div[@class='J-Z-aEu-I J-Z-I J-J5-Ji J-Z-I-Jp']";
-    private final String boldBtn = "//*[@command='+bold']";
-    private final String colorsBtn = "//div[@class='eS  aaA aaB']";
-    private final String redColorBtn = "//div[@title='RGB (255, 0, 0)']";
     private final String closeBtn = "//img[@class='Ha']";
     private final String inboxCounter = "//*[@class='bsU']";
 
@@ -106,37 +101,10 @@ public class NewEmailPage extends AbstractPage {
         return testText;
     }
 
-    public NewEmailPage openTextFormatting() {
-        waitForElementClickable(getElementBy(textFormattingBtn));
-        getElement(textFormattingBtn).click();
-        return this;
-    }
-
     public NewEmailPage selectBody() {
         waitForElementClickable(getElementBy(bodyField));
         getElement(bodyField).click();
         getElement(bodyField).sendKeys(Keys.chord(Keys.CONTROL, "a"));
-        return this;
-    }
-
-    public NewEmailPage makeBodyBold() {
-        waitForElementClickable(getElementBy(boldBtn));
-        getElement(boldBtn).click();
-        return this;
-    }
-
-    public NewEmailPage makeBodyItalic() {
-        getElement(bodyField).sendKeys(Keys.chord(Keys.CONTROL, "i"));
-        return this;
-    }
-
-    public NewEmailPage makeBodyRed() {
-        waitForElementClickable(getElementBy(bodyField));
-        getElement(bodyField).click();
-        getElement(bodyField).sendKeys(Keys.chord(Keys.CONTROL, "a"));
-        waitForElementClickable(getElementBy(colorsBtn));
-        getElement(colorsBtn).click();
-        getElement(redColorBtn).click();
         return this;
     }
 

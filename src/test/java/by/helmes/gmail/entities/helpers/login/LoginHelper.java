@@ -9,7 +9,6 @@ import org.openqa.selenium.WebDriver;
 public class LoginHelper extends AbstractHelper {
     LoginPage loginPage;
 
-
     public LoginHelper(WebDriver driver) {
         super(driver);
         loginPage = new LoginPage(driver);
@@ -21,7 +20,7 @@ public class LoginHelper extends AbstractHelper {
         return this;
     }
 
-    @Step("Login with {login}")
+    @Step("fill in {login}")
     public PasswordPage fillInLogin(String login) {
         loginPage
                 .fillLoginField(login)

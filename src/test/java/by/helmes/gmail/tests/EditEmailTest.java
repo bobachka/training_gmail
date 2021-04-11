@@ -7,6 +7,7 @@ import by.helmes.gmail.entities.helpers.login.PasswordHelper;
 import by.helmes.gmail.entities.helpers.navigation.NewEmailHelper;
 import io.qameta.allure.Description;
 import org.testng.Assert;
+import org.testng.ITestContext;
 import org.testng.annotations.*;
 
 public class EditEmailTest extends BaseTest {
@@ -29,8 +30,8 @@ public class EditEmailTest extends BaseTest {
     }
 
     @BeforeMethod
-    public void setupMethod() {
-        setupTest();
+    public void setupMethod(ITestContext context) {
+        setupTest(context);
 
         LoginHelper loginHelper = new LoginHelper(driver);
         PasswordHelper passwordHelper = new PasswordHelper(driver);
@@ -50,7 +51,6 @@ public class EditEmailTest extends BaseTest {
     @Test
     @Description(value = "This test is to verify that email body can be updated after new email window is minimised and restored back")
     public void minimiseRestoreUpdateBody() {
-        //@Step ("f")
         newEmailHelper.minimiseEmail();
         newEmailHelper.restoreEmail();
 

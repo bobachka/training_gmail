@@ -16,6 +16,9 @@
         </classes>
     </test>
     <test name="Delete Email">
+<!--        <listeners>-->
+<!--            <listener class-name="by.helmes.gmail.core.listeners.FailedTestListener"/>-->
+<!--        </listeners>-->
         <parameter name="fileName" value="configuration"/>
         <classes>
             <class name="by.helmes.gmail.tests.DeleteEmailTest"/>

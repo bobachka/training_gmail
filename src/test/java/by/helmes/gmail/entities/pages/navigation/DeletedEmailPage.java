@@ -12,7 +12,6 @@ public class DeletedEmailPage extends AbstractPage {
         super(driver);
     }
 
-
     public int countDeletedEmails() {
         return getElements(deletedItem).size();
     }

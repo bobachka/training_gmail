@@ -80,12 +80,6 @@ public class HomePage extends AbstractPage {
     public DeletedEmailPage navigateToDeleted() {
         hoverOnItem(sentLink);
         scrollDown();
-//        waitForElementClickable(getElementBy(moreBtn));
-//        getElement(moreBtn).click();
-//        scrollDown();
-//        waitForElementPresence(getElementBy(deletedLink));
-//        getElement(deletedLink).click();
-//        return new DeletedEmailPage(driver);
         return navigateToDeletedAgain();
     }
 

@@ -9,6 +9,7 @@ import by.helmes.gmail.entities.helpers.navigation.NewEmailHelper;
 import by.helmes.gmail.entities.helpers.navigation.SentEmailHelper;
 import io.qameta.allure.Description;
 import org.testng.Assert;
+import org.testng.ITestContext;
 import org.testng.annotations.*;
 
 public class SendEmailTest extends BaseTest {
@@ -28,8 +29,8 @@ public class SendEmailTest extends BaseTest {
     }
 
     @BeforeMethod
-    public void setupMethod() {
-        setupTest();
+    public void setupMethod(ITestContext context) {
+        setupTest(context);
         LoginHelper loginHelper = new LoginHelper(driver);
         PasswordHelper passwordHelper = new PasswordHelper(driver);
         homeHelper = new HomeHelper(driver);

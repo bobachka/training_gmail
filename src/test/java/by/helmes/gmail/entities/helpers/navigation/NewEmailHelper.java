@@ -57,10 +57,6 @@ public class NewEmailHelper extends AbstractHelper {
         return newEmailPage.optimiseNewEmail();
     }
 
-    public NewEmailPage openTextFormatting() {
-        return newEmailPage.openTextFormatting();
-    }
-
     public NewEmailPage selectBody(){
         return newEmailPage.selectBody();
     }
@@ -68,18 +64,6 @@ public class NewEmailHelper extends AbstractHelper {
     @Step("add Test Text")
     public String addTestText(){
         return newEmailPage.addTestText();
-    }
-
-    public NewEmailPage bodyBold() {
-        return newEmailPage.makeBodyBold();
-    }
-
-    public NewEmailPage bodyItalic() {
-        return newEmailPage.makeBodyItalic();
-    }
-
-    public NewEmailPage bodyRed() {
-        return newEmailPage.makeBodyRed();
     }
 
     @Step("close New Email")

@@ -89,19 +89,8 @@ public class AbstractPage {
         }
     }
 
-    private void scroll(int x, int y) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript(
-                "window.scrollBy(" + x + "," + y + ")");
-    }
-
     protected void scrollDown() {
         scroll(0, 300);
-    }
-
-    //TODO
-    private void scroll(String element){
-
     }
 
     protected void scrollUp() {
@@ -117,5 +106,12 @@ public class AbstractPage {
     protected void navigateBackRefresh(){
         driver.navigate().back();
         driver.navigate().refresh();
+    }
+
+
+    private void scroll(int x, int y) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript(
+                "window.scrollBy(" + x + "," + y + ")");
     }
 }
