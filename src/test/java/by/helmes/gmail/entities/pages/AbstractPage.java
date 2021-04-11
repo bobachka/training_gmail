@@ -105,8 +105,9 @@ public class AbstractPage {
     }
 
     protected void scrollUp() {
-        scroll(0,-300);
+        scroll(0, -300);
     }
+
     protected void hoverOnItem(String item) {
         Actions action = new Actions(driver);
         WebElement element = getElement(item);

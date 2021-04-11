@@ -19,6 +19,11 @@ public class HomePage extends AbstractPage {
     private final String sentLink = "//a[@href='https://mail.google.com/mail/u/0/#sent']";
     private final String moreBtn = "//span[@class='J-Ke n4 ah9']";
     private final String deletedLink = "//a[@href='https://mail.google.com/mail/u/0/#trash']";
+    private final String searchField = "//input[@class='gb_gf']";
+    private final String searchBtn = "//button[@class='gb_pf gb_qf']";
+    private final String searchResultsSent = "//tr[@class='zA zE']";
+    private final String searchResultsEdited = "//tr[@class='zA yO']";
+    private final String searchResultsDeleted = "//tr[@class='TD']";
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -72,10 +77,19 @@ public class HomePage extends AbstractPage {
         return new SentEmailPage(driver);
     }
 
-
     public DeletedEmailPage navigateToDeleted() {
         hoverOnItem(sentLink);
         scrollDown();
+//        waitForElementClickable(getElementBy(moreBtn));
+//        getElement(moreBtn).click();
+//        scrollDown();
+//        waitForElementPresence(getElementBy(deletedLink));
+//        getElement(deletedLink).click();
+//        return new DeletedEmailPage(driver);
+        return navigateToDeletedAgain();
+    }
+
+    public DeletedEmailPage navigateToDeletedAgain() {
         waitForElementClickable(getElementBy(moreBtn));
         getElement(moreBtn).click();
         scrollDown();
@@ -84,12 +98,29 @@ public class HomePage extends AbstractPage {
         return new DeletedEmailPage(driver);
     }
 
-    public DeletedEmailPage navigateToDeletedAgain() {
-        hoverOnItem(sentLink);
-        scrollDown();
-        waitForElementPresence(getElementBy(deletedLink));
-        getElement(deletedLink).click();
-        return new DeletedEmailPage(driver);
+    public HomePage searchForText(String text) {
+        changeWindow();
+        waitForElementClickable(getElementBy(searchField));
+        getElement(searchField).click();
+        getElement(searchField).sendKeys(text);
+        getElement(searchBtn).click();
+        return this;
     }
 
+    private boolean verifySearchResults(String results) {
+        waitForElementClickable(getElementBy(results));
+        return getElement(results).isDisplayed();
+    }
+
+    public boolean verifySearchResultsSent() {
+        return verifySearchResults(searchResultsSent);
+    }
+
+    public boolean verifySearchResultsEdited() {
+        return verifySearchResults(searchResultsEdited);
+    }
+
+    public boolean verifySearchResultsDeleted() {
+        return verifySearchResults(searchResultsDeleted);
+    }
 }

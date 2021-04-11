@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Gmail suite" parallel="classes" thread-count="3">
+<suite name="Gmail suite" parallel="tests" thread-count="3">
     <test name="Send Email">
         <parameter name="fileName" value="configuration"/>
         <classes>

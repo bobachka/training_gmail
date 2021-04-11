@@ -44,19 +44,19 @@ public class DeleteEmailTest extends BaseTest {
     }
 
 
-    @Test
-    @Description(value = "This test is to verify that inbox counter decreases after an email is deleted")
-    public void deleteEmailAndCheckInboxCounter() {
-        homeHelper.openNewEmail();
-        newEmailHelper.sendNewEmail(login);
-        int unreadEmailsListBefore = homeHelper.getInboxResultsTotal();
-
-        homeHelper.deleteLastUnreadEmail();
-
-        int unreadEmailsListAfter = homeHelper.getInboxResultsTotal();
-
-        Assert.assertEquals(unreadEmailsListBefore - 1, unreadEmailsListAfter, "Email has not been deleted:");
-    }
+//    @Test
+//    @Description(value = "This test is to verify that inbox counter decreases after an email is deleted")
+//    public void deleteEmailAndCheckInboxCounter() {
+//        homeHelper.openNewEmail();
+//        newEmailHelper.sendNewEmail(login);
+//        int unreadEmailsListBefore = homeHelper.getInboxResultsTotal();
+//
+//        homeHelper.deleteLastUnreadEmail();
+//
+//        int unreadEmailsListAfter = homeHelper.getInboxResultsTotal();
+//
+//        Assert.assertEquals(unreadEmailsListBefore - 1, unreadEmailsListAfter, "Email has not been deleted:");
+//    }
 
     @Test
     @Description(value = "This test is to verify that deleted email disappears from the deleted emails table")
@@ -78,6 +78,20 @@ public class DeleteEmailTest extends BaseTest {
 
         Assert.assertEquals(deletedTableBefore, deletedTableAfter - 1, "Email has not been deleted:");
     }
+
+
+//    @Test
+//    @Description(value = "This test is to verify that deleted email can not be found via search")
+//    public void deleteEmailAndSearchForIt() {
+//        homeHelper.openNewEmail();
+//        newEmailHelper.composeNewEmail(login);
+//        String emailBody = newEmailHelper.getBody();
+//        newEmailHelper.clickSendBtn();
+//
+//        homeHelper.deleteLastUnreadEmail();
+//
+//        Assert.assertTrue(homeHelper.searchForBodyDeleted(emailBody), "Deleted email has been found");
+//    }
 
     @AfterMethod
     public void tearDown() {

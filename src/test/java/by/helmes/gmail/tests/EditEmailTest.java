@@ -11,6 +11,7 @@ import org.testng.annotations.*;
 
 public class EditEmailTest extends BaseTest {
     private NewEmailHelper newEmailHelper;
+    private HomeHelper homeHelper;
     private String login;
     private String password;
 
@@ -33,8 +34,9 @@ public class EditEmailTest extends BaseTest {
 
         LoginHelper loginHelper = new LoginHelper(driver);
         PasswordHelper passwordHelper = new PasswordHelper(driver);
-        HomeHelper homeHelper = new HomeHelper(driver);
+        //HomeHelper homeHelper = new HomeHelper(driver);
         newEmailHelper = new NewEmailHelper(driver);
+        homeHelper = new HomeHelper(driver);
 
         loginHelper.navigateToHomePage();
         loginHelper.fillInLogin(login);
@@ -46,31 +48,35 @@ public class EditEmailTest extends BaseTest {
 
 
     @Test
-    @Description(value = "This test is to verify that updated email body remains after new email window is minimised and restored back")
-    public void updateBodyMinimiseRestore() {
-
-        String bodyBefore = newEmailHelper.getBody();
-        String testText = newEmailHelper.addTestText();
-
+    @Description(value = "This test is to verify that email body can be updated after new email window is minimised and restored back")
+    public void minimiseRestoreUpdateBody() {
+        //@Step ("f")
         newEmailHelper.minimiseEmail();
         newEmailHelper.restoreEmail();
 
-        String bodyAfter = newEmailHelper.getBody();
-        Assert.assertEquals(bodyBefore + testText, bodyAfter, "Email body has been changed, not formatted:");
+        newEmailHelper.addTestText();
+
+        String updatedBody = newEmailHelper.getBody();
+
+        newEmailHelper.closeNewEmail();
+
+        Assert.assertTrue(homeHelper.searchForBodyEdited(updatedBody), "Email with the updated body has not been found");
     }
 
     @Test
-    @Description(value = "This test is to verify that updated email body remains after new email window is maximised and optimised back")
-    public void updateBodyMaximiseOptimise() {
-
-        String bodyBefore = newEmailHelper.getBody();
-        String testText = newEmailHelper.addTestText();
+    @Description(value = "This test is to verify that email body can be updated after new email window is maximised and optimised back")
+    public void maximiseOptimiseUpdateBody() {
 
         newEmailHelper.maximiseEmail();
         newEmailHelper.optimiseEmail();
 
-        String bodyAfter = newEmailHelper.getBody();
-        Assert.assertEquals(bodyBefore + testText, bodyAfter, "Email body has been changed, not formatted:");
+        newEmailHelper.addTestText();
+
+        String updatedBody = newEmailHelper.getBody();
+
+        newEmailHelper.closeNewEmail();
+
+        Assert.assertTrue(homeHelper.searchForBodyEdited(updatedBody), "Email with the updated body has not been found");
     }
 
 

@@ -15,4 +15,8 @@ public class DraftEmailHelper extends AbstractHelper {
     public String getBodyOfFirstDraft() {
         return draftEmailPage.getBodyOfFirstDraft();
     }
+
+//    public boolean searchForBody (String text){
+//        return draftEmailPage.searchForText(text).verifySearchResults();
+//    }
 }

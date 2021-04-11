@@ -69,6 +69,17 @@ public class SendEmailTest extends BaseTest {
         Assert.assertEquals(sentTableBefore, sentTableAfter - 1, "Email has not been sent");
     }
 
+    @Test
+    @Description(value = "This test is to verify that sent email can be found via search")
+    public void sentEmailAndSearchForIt() {
+        homeHelper.openNewEmail();
+        newEmailHelper.composeNewEmail(login);
+        String emailBody = newEmailHelper.getBody();
+        newEmailHelper.clickSendBtn();
+
+        Assert.assertTrue(homeHelper.searchForBodySent(emailBody), "Sent email has not been found");
+    }
+
 
     @AfterMethod
     public void tearDown() {
