@@ -1,21 +1,13 @@
 package by.helmes.gmail.tests;
 
 import by.helmes.gmail.core.FrameworkCore;
-import by.helmes.gmail.entities.helpers.login.HomeHelper;
-import by.helmes.gmail.entities.helpers.login.LoginHelper;
-import by.helmes.gmail.entities.helpers.login.PasswordHelper;
 import by.helmes.gmail.entities.helpers.navigation.DeletedEmailHelper;
-import by.helmes.gmail.entities.helpers.navigation.NewEmailHelper;
 import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 
 public class DeleteEmailTest extends BaseTest {
-    private LoginHelper loginHelper;
-    private PasswordHelper passwordHelper;
-    private HomeHelper homeHelper;
-    private NewEmailHelper newEmailHelper;
     private DeletedEmailHelper deletedEmailHelper;
     private String login;
     private String password;
@@ -33,10 +25,6 @@ public class DeleteEmailTest extends BaseTest {
     public void setupMethod(ITestContext context) {
         setupTest(context);
 
-        loginHelper = new LoginHelper(driver);
-        passwordHelper = new PasswordHelper(driver);
-        homeHelper = new HomeHelper(driver);
-        newEmailHelper = new NewEmailHelper(driver);
         deletedEmailHelper = new DeletedEmailHelper(driver);
 
         loginHelper.navigateToHomePage();
@@ -59,40 +47,40 @@ public class DeleteEmailTest extends BaseTest {
         Assert.assertEquals(unreadEmailsListBefore - 1, unreadEmailsListAfter, "Email has not been deleted:");
     }
 
-    @Test
-    @Description(value = "This test is to verify that deleted email disappears from the deleted emails table")
-    public void deleteEmailAndCheckDeletedTable() {
-
-        homeHelper.navigateToDeleted();
-
-        int deletedTableBefore = deletedEmailHelper.countDeletedEmails();
-
-        deletedEmailHelper.navigateBackToHome();
-
-        homeHelper.openNewEmail();
-        newEmailHelper.sendNewEmail(login);
-        homeHelper.deleteLastUnreadEmail();
-
-        homeHelper.navigateToDeletedAgain();
-
-        int deletedTableAfter = deletedEmailHelper.countDeletedEmails();
-
-        Assert.assertEquals(deletedTableBefore, deletedTableAfter - 1, "Email has not been deleted:");
-    }
-
-
-    @Test
-    @Description(value = "This test is to verify that deleted email can not be found via search")
-    public void deleteEmailAndSearchForIt() {
-        homeHelper.openNewEmail();
-        newEmailHelper.composeNewEmail(login);
-        String emailBody = newEmailHelper.getBody();
-        newEmailHelper.clickSendBtn();
-
-        homeHelper.deleteLastUnreadEmail();
-
-        Assert.assertTrue(homeHelper.searchForBodyDeleted(emailBody), "Deleted email has been found");
-    }
+//    @Test
+//    @Description(value = "This test is to verify that deleted email disappears from the deleted emails table")
+//    public void deleteEmailAndCheckDeletedTable() {
+//
+//        homeHelper.navigateToDeleted();
+//
+//        int deletedTableBefore = deletedEmailHelper.countDeletedEmails();
+//
+//        deletedEmailHelper.navigateBackToHome();
+//
+//        homeHelper.openNewEmail();
+//        newEmailHelper.sendNewEmail(login);
+//        homeHelper.deleteLastUnreadEmail();
+//
+//        homeHelper.navigateToDeletedAgain();
+//
+//        int deletedTableAfter = deletedEmailHelper.countDeletedEmails();
+//
+//        Assert.assertEquals(deletedTableBefore, deletedTableAfter - 1, "Email has not been deleted:");
+//    }
+//
+//
+//    @Test
+//    @Description(value = "This test is to verify that deleted email can not be found via search")
+//    public void deleteEmailAndSearchForIt() {
+//        homeHelper.openNewEmail();
+//        newEmailHelper.composeNewEmail(login);
+//        String emailBody = newEmailHelper.getBody();
+//        newEmailHelper.clickSendBtn();
+//
+//        homeHelper.deleteLastUnreadEmail();
+//
+//        Assert.assertTrue(homeHelper.searchForBodyDeleted(emailBody), "Deleted email has been found");
+//    }
 
     @AfterMethod
     public void tearDown() {

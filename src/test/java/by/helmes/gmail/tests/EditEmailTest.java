@@ -1,18 +1,12 @@
 package by.helmes.gmail.tests;
 
 import by.helmes.gmail.core.FrameworkCore;
-import by.helmes.gmail.entities.helpers.login.HomeHelper;
-import by.helmes.gmail.entities.helpers.login.LoginHelper;
-import by.helmes.gmail.entities.helpers.login.PasswordHelper;
-import by.helmes.gmail.entities.helpers.navigation.NewEmailHelper;
 import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 
 public class EditEmailTest extends BaseTest {
-    private NewEmailHelper newEmailHelper;
-    private HomeHelper homeHelper;
     private String login;
     private String password;
 
@@ -32,12 +26,6 @@ public class EditEmailTest extends BaseTest {
     @BeforeMethod
     public void setupMethod(ITestContext context) {
         setupTest(context);
-
-        LoginHelper loginHelper = new LoginHelper(driver);
-        PasswordHelper passwordHelper = new PasswordHelper(driver);
-        //HomeHelper homeHelper = new HomeHelper(driver);
-        newEmailHelper = new NewEmailHelper(driver);
-        homeHelper = new HomeHelper(driver);
 
         loginHelper.navigateToHomePage();
         loginHelper.fillInLogin(login);
