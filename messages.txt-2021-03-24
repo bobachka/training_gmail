@@ -1,0 +1,71 @@
+2021-03-24 00:52:33 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 01:18:55 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 01:20:32 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 01:21:55 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 01:25:45 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 01:27:01 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 01:30:03 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 01:31:17 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 01:36:38 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 01:38:28 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 01:41:12 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 01:45:21 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 01:46:57 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 01:48:52 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 01:50:17 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 01:51:45 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 01:56:50 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 01:57:36 ERROR test logger:13 - Expected condition failed: waiting for visibility of element located by By.xpath: //*[@class="bsU"] (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'HEL01709', ip: '192.168.100.8', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '14'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.90, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\SVIATL~1.HGR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:61041}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: db6478bc17d4a35ce5efd4882696c30d
+2021-03-24 01:58:47 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 01:59:34 ERROR test logger:13 - Expected condition failed: waiting for visibility of element located by By.xpath: //*[@class="bsU"] (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'HEL01709', ip: '192.168.100.8', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '14'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.90, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\SVIATL~1.HGR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:61169}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: e311d62a76bad80a6073c18ebfd07921
+2021-03-24 02:00:55 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 02:02:01 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 02:02:51 ERROR test logger:13 - Expected condition failed: waiting for visibility of element located by By.xpath: //*[@class="bsU"] (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'HEL01709', ip: '192.168.100.8', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '14'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.90, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\SVIATL~1.HGR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:61409}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: af884ce269e596bfde0598297a589f87
+2021-03-24 02:07:11 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 02:09:59 ERROR test logger:13 - Expected condition failed: waiting for element to be clickable: By.xpath: //span[@class='J-Ke n4 ah9'] (tried for 120 second(s) with 500 milliseconds interval)
+2021-03-24 02:10:16 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 02:11:20 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 02:13:33 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 02:14:12 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 02:14:58 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 02:15:45 ERROR test logger:13 - Expected condition failed: waiting for visibility of element located by By.xpath: //*[@class="bsU"] (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'HEL01709', ip: '192.168.100.8', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '14'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.90, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\SVIATL~1.HGR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:62679}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 2fa1a7d7395ecf2b9a13776b193f12c3
+2021-03-24 02:17:08 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 02:17:57 ERROR test logger:13 - Expected condition failed: waiting for visibility of element located by By.xpath: //*[@class="bsU"] (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'HEL01709', ip: '192.168.100.8', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '14'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.90, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\SVIATL~1.HGR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:62811}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 69300ac981f20cc1b7bd0b5e827980fe
+2021-03-24 02:18:32 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 14:20:55 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 14:21:33 ERROR test logger:13 - Expected condition failed: waiting for presence of element located by: By.xpath: //*[@class="gb_le gb_qc gb_je"] (tried for 30 second(s) with 500 milliseconds interval)
+2021-03-24 14:21:35 INFO  test logger:9 - Initializing FF Driver
+2021-03-24 14:22:18 ERROR test logger:13 - Expected condition failed: waiting for presence of element located by: By.xpath: //*[@name="password"] (tried for 30 second(s) with 500 milliseconds interval)
+2021-03-24 14:22:48 ERROR test logger:13 - Expected condition failed: waiting for presence of element located by: By.xpath: //*[@class="gb_le gb_qc gb_je"] (tried for 30 second(s) with 500 milliseconds interval)
+2021-03-24 14:24:14 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 14:24:28 INFO  test logger:9 - Initializing FF Driver
+2021-03-24 14:25:09 ERROR test logger:13 - Expected condition failed: waiting for presence of element located by: By.xpath: //*[@name="password"] (tried for 30 second(s) with 500 milliseconds interval)
+2021-03-24 14:29:44 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 14:34:23 INFO  test logger:9 - Initializing Chrome Driver
+2021-03-24 14:34:42 INFO  test logger:9 - Initializing FF Driver
+2021-03-24 14:35:25 ERROR test logger:13 - Expected condition failed: waiting for presence of element located by: By.xpath: //*[@name="password"] (tried for 30 second(s) with 500 milliseconds interval)

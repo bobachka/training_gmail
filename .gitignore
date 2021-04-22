@@ -5,3 +5,5 @@ out/
 *.class
 /allure-report/
 /allure-results/
+/test-output/
+/messages.txt

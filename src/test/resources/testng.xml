@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Gmail suite" parallel="tests" thread-count="3">
+    <listeners>
+        <listener class-name="by.helmes.gmail.core.listeners.FailedTestListener"/>
+    </listeners>
+    <test name="Send Email">
+        <parameter name="fileName" value="configuration"/>
+        <classes>
+            <class name="by.helmes.gmail.tests.SendEmailTest"/>
+        </classes>
+    </test>
+    <test name="Edit Email">
+        <parameter name="fileName" value="configuration"/>
+        <classes>
+            <class name="by.helmes.gmail.tests.EditEmailTest"/>
+        </classes>
+    </test>
+    <test name="Delete Email">
+        <parameter name="fileName" value="configuration"/>
+        <classes>
+            <class name="by.helmes.gmail.tests.DeleteEmailTest"/>
+        </classes>
+    </test>
+    <!--    <test name="Factory Test">-->
+    <!--        <classes>-->
+    <!--            <class name="by.helmes.gmail.tests.factory.LoginTestFactory"/>-->
+    <!--        </classes>-->
+    <!--    </test>-->
+</suite>
