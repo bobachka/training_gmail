@@ -9,6 +9,7 @@ import by.helmes.gmail.entities.helpers.navigation.SentEmailHelper;
 import by.helmes.gmail.tests.BaseTest;
 import io.qameta.allure.Description;
 import org.testng.Assert;
+import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -30,12 +31,12 @@ public class LoginTestForFactory extends BaseTest {
 
 
     @BeforeMethod
-    public void setupMethod() {
+    public void setupMethod(ITestContext context) {
         readConfigFile(null);
         login = FrameworkCore.login;
         password = FrameworkCore.password;
 
-        setupTest(browser);
+        setupTest(context);
         loginHelper = new LoginHelper(driver);
         passwordHelper = new PasswordHelper(driver);
         homeHelper = new HomeHelper(driver);

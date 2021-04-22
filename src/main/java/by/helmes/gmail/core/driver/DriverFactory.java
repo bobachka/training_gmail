@@ -12,6 +12,12 @@ public enum DriverFactory {
         public DriverManager getDriverManager() {
             return new FirefoxDriverManager();
         }
+    },
+    SERVER {
+        @Override
+        public DriverManager getDriverManager() {
+            return new RemoteDriverManager();
+        }
     };
 
     public abstract DriverManager getDriverManager();

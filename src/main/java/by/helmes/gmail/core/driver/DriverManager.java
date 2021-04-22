@@ -23,7 +23,7 @@ public abstract class DriverManager {
 
     public WebDriver getDriver() {
         if (null == drivers.get()) {
-            drivers.set(this.createDriver());
+            drivers.set(createDriver());
         }
         drivers.get().manage().timeouts().implicitlyWait(1L, TimeUnit.SECONDS);
 
