@@ -8,7 +8,6 @@ import org.testng.ITestContext;
 
 public abstract class BaseTest {
 
-    public static final String WEBDRIVER = "webdriver";
     protected WebDriver driver;
     private DriverManager driverManager;
 
