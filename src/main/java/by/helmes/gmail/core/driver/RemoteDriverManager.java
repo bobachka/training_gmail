@@ -22,7 +22,7 @@ public class RemoteDriverManager extends DriverManager {
         capabilities.setCapability("browserName", FrameworkCore.gridBrowser.toLowerCase());
 
         try {
-            return new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),
+            return new RemoteWebDriver(new URL("http://192.168.100.14:4445/wd/hub"),
                     capabilities);
         } catch (MalformedURLException e) {
             e.printStackTrace();
